@@ -1,0 +1,13 @@
+import src.server.commands.auth_commands
+import src.server.commands.survey.survey_v2
+import src.server.commands.survey.survey_commands
+import src.server.commands.portal_commands
+import src.server.commands.studies_commands
+import src.server.commands.admin_commands
+import src.server.commands.platform_values_commands
+import src.server.commands.billing_commands
+import src.server.commands.registration_commands
+import src.server.commands.logs_commands
+import src.server.commands.tutorial_commands
+import src.server.commands.games_explorer_commands
+import src.server.commands.player_explorer_commands
