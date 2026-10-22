@@ -1,0 +1,2 @@
+set executable permission:
+update-index --chmod=+x path/to/file

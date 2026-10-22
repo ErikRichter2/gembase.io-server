@@ -1,0 +1,9 @@
+create table platform_values.results_competitors_cnt
+(
+    platform_id           int not null,
+    audience_angle_id_int int not null,
+    competitors_cnt       int not null,
+    constraint results_competitors_cnt_pk
+        primary key (platform_id, audience_angle_id_int)
+);
+

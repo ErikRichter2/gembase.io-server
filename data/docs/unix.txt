@@ -1,0 +1,2 @@
+# kill all service_wrapper proccess
+ps -ef | grep "service_wrapper" | grep -v grep | awk '{print $2}' | xargs kill

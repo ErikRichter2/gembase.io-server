@@ -1,0 +1,270 @@
+Candy Crush Saga
+
+Added: []
+Removed: topics__adventure,topics__action,styles__cartoon
+
+Genres: genre__match, genre__puzzle
+Genres rank old: 1. genre__match 2. genre__puzzle
+Genres rank new: 1. genre__match 2. genre__puzzle
+
+Topics: topics__fantasy
+Topics rank old: 1. topics__adventure 2. topics__action
+Topics rank new: 
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,GAME_PUZZLE,Offline+games,Match+3+games
+==============================
+Clash of Clans
+
+Added: complexity__casual,multiplayer__solo
+Removed: multiplayer__mmo,core__melee,topics__adventure
+
+Genres: genre__strategy, genre__combat, genre__building
+Genres rank old: 1. genre__strategy 2. genre__combat 3. genre__building
+Genres rank new: 1. genre__strategy 2. genre__combat 3. genre__building
+
+Topics: topics__fantasy, topics__action
+Topics rank old: 1. topics__action 2. topics__adventure 3. topics__fantasy
+Topics rank new: 1. topics__action 2. topics__fantasy
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,Multiplayer+games,Cartoon+games,GAME_STRATEGY,Build+and+battle+games
+==============================
+Mr Autofire
+
+Added: complexity__casual,core__cover_fire
+Removed: topics__adventure,styles__cartoon
+
+Genres: genre__combat, genre__arcade
+Genres rank old: 1. genre__combat 2. genre__arcade
+Genres rank new: 1. genre__combat 2. genre__arcade
+
+Topics: topics__fantasy, topics__sci_fi, topics__action
+Topics rank old: 1. topics__action 2. topics__adventure 3. topics__sci_fi
+Topics rank new: 1. topics__action 2. topics__sci_fi
+
+Store tags: GAME_ACTION,GAME_CASUAL,Single+player+games,Stylized+games,Offline+games,Platformer+games,Run+and+gun+games
+==============================
+Zombie Catchers : Hunt & sell
+
+Added: core__platformer
+Removed: genre__simulation,core__management,topics__adventure,styles__cartoon
+
+Genres: genre__arcade, genre__building
+Genres rank old: 1. genre__arcade 2. genre__building 3. genre__simulation
+Genres rank new: 1. genre__arcade 2. genre__building
+
+Topics: topics__fantasy, topics__sci_fi, topics__action, topics__comedy
+Topics rank old: 1. topics__action 2. topics__adventure 3. topics__comedy
+Topics rank new: 1. topics__action 2. topics__comedy
+
+Store tags: GAME_ACTION,GAME_CASUAL,Single+player+games,Stylized+games,Offline+games,Platformer+games
+==============================
+Smashing Four: PvP Hero bump
+
+Added: complexity__casual,genre__puzzle
+Removed: genre__strategy,core__management,core__asymetric,core__melee,styles__cartoon
+
+Genres: genre__rpg, genre__combat, genre__puzzle
+Genres rank old: 1. genre__rpg 2. genre__strategy 3. genre__combat
+Genres rank new: 1. genre__rpg 2. genre__combat 3. genre__puzzle
+
+Topics: topics__adventure, topics__fantasy, topics__action
+Topics rank old: 1. topics__action 2. topics__adventure 3. topics__fantasy
+Topics rank new: 1. topics__action 2. topics__adventure 3. topics__fantasy
+
+Store tags: GAME_CASUAL,Stylized+games,GAME_ROLE_PLAYING,Multiplayer+games,Competitive+multiplayer+games,Puzzle+rpg+games,Physics+puzzle+rpg+games
+==============================
+Tabou Stories®: Love Episodes
+
+Added: []
+Removed: genre__rpg,genre__simulation,core__management,styles__cartoon
+
+Genres: genre__story
+Genres rank old: 1. genre__story 2. genre__simulation 3. genre__rpg
+Genres rank new: 1. genre__story
+
+Topics: topics__adventure, topics__mystery, topics__fantasy, topics__realistic, topics__drama, topics__romance
+Topics rank old: 1. topics__adventure 2. topics__romance 3. topics__drama
+Topics rank new: 1. topics__adventure 2. topics__realistic 3. topics__romance
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,GAME_ADVENTURE,Interactive+stories,Stylized+realistic+games
+==============================
+Train Station 2: Transit Game
+
+Added: complexity__casual,multiplayer__solo,visuals__low
+Removed: genre__strategy,topics__adventure,topics__action
+
+Genres: genre__simulation, genre__building
+Genres rank old: 1. genre__simulation 2. genre__strategy 3. genre__building
+Genres rank new: 1. genre__simulation 2. genre__building
+
+Topics: topics__realistic
+Topics rank old: 1. topics__realistic 2. topics__adventure 3. topics__action
+Topics rank new: 1. topics__realistic
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,GAME_SIMULATION,Management+games,Tycoon+games,Low+poly+games
+==============================
+Super Mario Run
+
+Added: core__platformer
+Removed: core__management,topics__adventure
+
+Genres: genre__arcade, genre__building
+Genres rank old: 1. genre__arcade 2. genre__building
+Genres rank new: 1. genre__arcade 2. genre__building
+
+Topics: topics__fantasy, topics__action
+Topics rank old: 1. topics__adventure 2. topics__action 3. topics__fantasy
+Topics rank new: 1. topics__action 2. topics__fantasy
+
+Store tags: GAME_ACTION,GAME_CASUAL,Single+player+games,Stylized+games,Cartoon+games,Platformer+games
+==============================
+Township
+
+Added: multiplayer__solo
+Removed: genre__strategy,core__design,topics__adventure,topics__action,styles__cartoon
+
+Genres: genre__simulation, genre__building
+Genres rank old: 1. genre__simulation 2. genre__strategy 3. genre__building
+Genres rank new: 1. genre__simulation 2. genre__building
+
+Topics: topics__realistic
+Topics rank old: 1. topics__realistic 2. topics__adventure 3. topics__action
+Topics rank new: 1. topics__realistic
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,GAME_SIMULATION,Management+games,Farm+games
+==============================
+Farming Simulator 14
+
+Added: complexity__casual,genre__building,core__caring
+Removed: topics__action
+
+Genres: genre__simulation, genre__building
+Genres rank old: 1. genre__simulation
+Genres rank new: 1. genre__simulation 2. genre__building
+
+Topics: topics__realistic
+Topics rank old: 
+Topics rank new: 1. topics__realistic
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,GAME_SIMULATION,Management+games,Farm+games
+==============================
+Design Home™: House Makeover
+
+Added: []
+Removed: core__management
+
+Genres: genre__simulation, genre__building
+Genres rank old: 1. genre__simulation 2. genre__building
+Genres rank new: 1. genre__simulation 2. genre__building
+
+Topics: topics__realistic
+Topics rank old: 
+Topics rank new: 1. topics__realistic
+
+Store tags: GAME_CASUAL,Single+player+games,GAME_SIMULATION,Realistic+games,Lifestyle+simulation+games,Design+games
+==============================
+Mobile Legends: Bang Bang
+
+Added: multiplayer__solo
+Removed: genre__rpg,core__asymetric,core__melee,topics__adventure,styles__cartoon
+
+Genres: genre__strategy, genre__combat
+Genres rank old: 1. genre__strategy 2. genre__combat 3. genre__rpg
+Genres rank new: 1. genre__strategy 2. genre__combat
+
+Topics: topics__fantasy, topics__action
+Topics rank old: 1. topics__action 2. topics__adventure 3. topics__fantasy
+Topics rank new: 1. topics__action 2. topics__fantasy
+
+Store tags: Single+player+games,Stylized+games,Multiplayer+games,GAME_STRATEGY,Anime+games,MOBA+games
+==============================
+Pokémon GO
+
+Added: complexity__casual,multiplayer__solo
+Removed: genre__rpg,genre__simulation,genre__combat,genre__arcade,core__management,core__asymetric,topics__action,styles__cartoon
+
+Genres: 
+Genres rank old: 1. genre__rpg 2. genre__simulation 3. genre__combat
+Genres rank new: 
+
+Topics: topics__adventure, topics__fantasy, topics__realistic
+Topics rank old: 1. topics__adventure 2. topics__realistic 3. topics__fantasy
+Topics rank new: 1. topics__adventure 2. topics__realistic 3. topics__fantasy
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,Multiplayer+games,Competitive+multiplayer+games,GAME_ADVENTURE,Anime+games
+==============================
+PUBG MOBILE
+
+Added: complexity__casual,core__cover_fire
+Removed: core__vehicular,topics__adventure
+
+Genres: genre__combat
+Genres rank old: 
+Genres rank new: 1. genre__combat
+
+Topics: topics__realistic, topics__action
+Topics rank old: 1. topics__action 2. topics__adventure 3. topics__realistic
+Topics rank new: 1. topics__action 2. topics__realistic
+
+Store tags: GAME_ACTION,GAME_CASUAL,Multiplayer+games,Competitive+multiplayer+games,Realistic+games,Shooter+games,Tactical+shooter+games
+==============================
+My Talking Tom
+
+Added: []
+Removed: genre__arcade,topics__adventure,topics__action
+
+Genres: genre__simulation
+Genres rank old: 1. genre__simulation 2. genre__arcade
+Genres rank new: 1. genre__simulation
+
+Topics: topics__realistic, topics__comedy
+Topics rank old: 1. topics__adventure 2. topics__action 3. topics__comedy
+Topics rank new: 1. topics__realistic 2. topics__comedy
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,Cartoon+games,GAME_SIMULATION,Offline+games,Care+games,Pet+games
+==============================
+Homescapes
+
+Added: []
+Removed: topics__adventure,styles__cartoon
+
+Genres: genre__match, genre__puzzle, genre__story, genre__building
+Genres rank old: 1. genre__match 2. genre__puzzle 3. genre__building
+Genres rank new: 1. genre__match 2. genre__puzzle 3. genre__building
+
+Topics: topics__mystery, topics__realistic, topics__drama, topics__comedy
+Topics rank old: 1. topics__adventure 2. topics__realistic 3. topics__comedy
+Topics rank new: 1. topics__realistic 2. topics__comedy
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,GAME_PUZZLE,Offline+games,Match+3+games,Match+3+adventure+games
+==============================
+Empires & Puzzles: Match-3 RPG
+
+Added: complexity__casual,multiplayer__solo,genre__combat
+Removed: genre__strategy,core__management,styles__cartoon
+
+Genres: genre__match, genre__puzzle, genre__rpg, genre__building, genre__combat
+Genres rank old: 1. genre__match 2. genre__rpg 3. genre__strategy
+Genres rank new: 1. genre__match 2. genre__rpg 3. genre__puzzle
+
+Topics: topics__adventure, topics__fantasy, topics__action
+Topics rank old: 1. topics__adventure 2. topics__action 3. topics__fantasy
+Topics rank new: 1. topics__adventure 2. topics__action 3. topics__fantasy
+
+Store tags: GAME_CASUAL,Single+player+games,Stylized+games,GAME_ROLE_PLAYING,Puzzle+rpg+games,Match+3+rpg+games
+==============================
+Subway Surfers
+
+Added: core__platformer
+Removed: complexity__casual,topics__adventure,styles__cartoon
+
+Genres: genre__arcade
+Genres rank old: 1. genre__arcade
+Genres rank new: 1. genre__arcade
+
+Topics: topics__action
+Topics rank old: 1. topics__action 2. topics__adventure
+Topics rank new: 1. topics__action
+
+Store tags: GAME_ACTION,Single+player+games,Stylized+games,Offline+games,GAME_ARCADE,Platformer+games,Runner+games
+==============================

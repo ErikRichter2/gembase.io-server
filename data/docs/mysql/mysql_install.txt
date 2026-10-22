@@ -1,0 +1,36 @@
+https://medium.com/@omkarmanjrekar/running-multiple-mysql-instances-on-ubuntu-4af059aad5ae
+
+mkdir -p /opt/mysql_vates_prod
+chmod --reference /var/lib/mysql /opt/mysql_vates_prod
+chown --reference /var/lib/mysql /opt/mysql_vates_prod
+
+nano /etc/apparmor.d/usr.sbin.mysqld
+
+/opt/mysql_vates_prod/ r,
+  /opt/mysql_vates_prod/** rwk,
+  /var/run/mysqld/mysql_vates_prod.pid rw,
+  /var/run/mysqld/mysql_vates_prod.sock rw,
+  /var/run/mysqld/mysql_vates_prod.sock.lock rw,
+  /run/mysqld/mysql_vates_prod.pid rw,
+  /run/mysqld/mysql_vates_prod.sock rw,
+  /run/mysqld/mysql_vates_prod.sock.lock rw,
+
+
+sudo service apparmor restart
+
+mysqld --initialize --user=mysql --datadir=/opt/mysql_vates_prod/
+
+nano /var/log/mysql/error.log
+password sljj7/kkq5Oj
+
+sudo mysqld_safe --defaults-file=/etc/mysql/my.cnf2
+sudo mysqld_safe --no-defaults --datadir=/opt/second_server_data/ --port=3315 --mysqlx=0 --socket=/var/run/mysqld/second_server.sock
+
+
+windows:
+
+copy c:\ProgramData\MySQL\MySQL Server 8.0\my.ini
+change port and datadir
+as admin:
+mysqld --initialize-insecure --datadir="c:\ProgramData\MySQL\vates.ai\Data"
+mysqld --defaults-file="c:\ProgramData\MySQL\vates.ai\my.ini"

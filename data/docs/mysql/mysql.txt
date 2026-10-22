@@ -1,0 +1,25 @@
+https://stackoverflow.com/questions/70993613/unable-to-install-mysql-on-centos7
+https://dev.mysql.com/doc/refman/8.0/en/using-systemd.html#systemd-multiple-mysql-instances
+
+nano /etc/my.cnf
+mysqld --initialize --user=mysql --datadir=/var/lib/mysql
+mysqld --initialize --user=mysql --datadir=/var/lib/mysql-test
+mysqld --initialize --user=mysql --datadir=/var/lib/mysql-demo
+systemctl start mysqld@demo
+systemctl start mysqld@test
+systemctl start mysqld@prod
+mysql --port 3306 -u root -p -S /var/lib/mysql/mysql.sock
+mysql --port 3307 -u root -p -S /var/lib/mysql-test/mysql.sock
+mysql --port 3308 -u root -p -S /var/lib/mysql-demo/mysql.sock
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '---------';
+create user 'gembase.admin'@'%' identified by '----------';
+grant all on *.* to 'gembase.admin'@'%';
+FLUSH PRIVILEGES;
+
+CREATE USER 'readonly'@'%' IDENTIFIED BY '$password';
+GRANT SELECT, SHOW VIEW ON *.* TO 'readonly'@'%';
+
+max_heap_table_size=128M
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+PURGE BINARY LOGS BEFORE NOW();

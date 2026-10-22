@@ -1,0 +1,7 @@
+- ak nejde ssl na gembase.io, treba najprv skontrolovat ci je spravna IP v A record DNSka.
+raz nam Namecheap zmenil IP z Google na svoju a potom nastali problemy s certifikatom.
+
+/etc/nginx
+add http server at port 80
+sudo certbot certonly --nginx
+letsencrypt

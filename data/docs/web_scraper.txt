@@ -1,0 +1,2 @@
+https://www.cyberciti.biz/faq/install-google-chrome-on-centos-7/
+https://serverdiary.com/linux/how-to-install-xvfb-and-create-systemd-xvfb-service-on-centos-7-8-or-rhel-7-8/

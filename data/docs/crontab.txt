@@ -1,0 +1,6 @@
+crontab -l
+crontab -e
+
+0 * * * * /home/gembase/dashboard-server/prod/cron/db_backup.sh > /dev/null 2>&1
+0 0 * * * /home/gembase/dashboard-server/prod/cron/trending_games.sh > /dev/null 2>&1
+

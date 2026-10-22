@@ -1,0 +1,12 @@
+#1 chrome remote desktop
+https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine
+#2 git
+https://docs.oracle.com/en/cloud/cloud-at-customer/occ-get-started/generate-ssh-key-pair.html
+#3 python
+https://cloudcone.com/docs/article/how-to-install-python-3-10-on-debian-11/
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
+# mysql
+https://medium.com/@omkarmanjrekar/running-multiple-mysql-instances-on-ubuntu-4af059aad5ae
+sudo mysqld_safe --no-defaults --datadir=/opt/mysql_test/ --port=3307 --mysqlx=0 --socket=/var/run/mysqld/mysql_test.sock
+#ssl - certbot
+https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal

@@ -129,10 +129,11 @@ dmypy.json
 .pyre/
 
 .idea
-.vscode
 
 nohup.out
 conda/
 conda_larch/
 /data/local/
 /data/private/
+.env
+.env*

@@ -1,0 +1,2818 @@
+{
+  "order": [
+    "intro",
+    "gender",
+    "age",
+    "role",
+    "plays_mobile",
+    "favorite_game",
+    "genre",
+    "themes",
+    "dcm",
+    "behaviours",
+    "needs",
+    "competitors",
+    "spent",
+    "playing_time",
+    "routine",
+    "end"
+  ],
+  "screens": {
+    "intro": {
+      "items": [
+        {
+          "id": "intro",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "<div><b>Dear Player!</b></div><div>Thank you for taking this survey. We would like your help to understand your gaming preferences. In turn we'll help game developers make better games.</div>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "end": {
+      "pages": 0,
+      "items": [
+        {
+          "id": "finish",
+          "last": true,
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "Thank you for taking our survey. Your response is very important to game developers."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "disqualify",
+          "last": true,
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "Thank you for your interest, but we are looking for mobile game players who don't work in game development, social media, advertising or research industries."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "gender": {
+      "items": [
+        {
+          "id": "gender",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "<b>You are:</b>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "m",
+              "text": "Male"
+            },
+            {
+              "value": "f",
+              "text": "Female"
+            },
+            {
+              "value": "o",
+              "text": "Other"
+            }
+          ]
+        }
+      ]
+    },
+    "age": {
+      "items": [
+        {
+          "id": "age",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "<b>How old are you?<b>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "0",
+              "text": "younger than 18 years old"
+            },
+            {
+              "value": "1",
+              "text": "18 - 24 years old"
+            },
+            {
+              "value": "2",
+              "text": "25 - 29 years old"
+            },
+            {
+              "value": "3",
+              "text": "30 - 35 years old"
+            },
+            {
+              "value": "4",
+              "text": "36 - 39 years old"
+            },
+            {
+              "value": "5",
+              "text": "40 - 45 years old"
+            },
+            {
+              "value": "6",
+              "text": "46 - 49 years old"
+            },
+            {
+              "value": "7",
+              "text": "50 - 54 years old"
+            },
+            {
+              "value": "8",
+              "text": "55 years old or older"
+            }
+          ]
+        }
+      ]
+    },
+    "role": {
+      "items": [
+        {
+          "id": "role",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "<b>Do you work in any of the following industries or businesses?</b>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "0",
+              "text": "Market Research",
+              "disqualify": true
+            },
+            {
+              "value": "1",
+              "text": "Advertising or PR",
+              "disqualify": true
+            },
+            {
+              "value": "2",
+              "text": "Hospitality industry"
+            },
+            {
+              "value": "3",
+              "text": "Automotive manufacturer or retailer"
+            },
+            {
+              "value": "4",
+              "text": "Mobile App Development/Publishing",
+              "disqualify": true
+            },
+            {
+              "value": "5",
+              "text": "Social Media platform/app",
+              "disqualify": true
+            },
+            {
+              "value": "6",
+              "text": "Banking or Financial Services"
+            },
+            {
+              "value": "7",
+              "text": "Psychology or sociology",
+              "disqualify": true
+            },
+            {
+              "value": "8",
+              "text": "Video Game Development/Publishing",
+              "disqualify": true
+            },
+            {
+              "value": "9",
+              "text": "None of the above",
+              "last": true
+            }
+          ]
+        }
+      ]
+    },
+    "plays_mobile": {
+      "items": [
+        {
+          "id": "is_mobile",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "<b>Do you play mobile games on your mobile phone or tablet?</b>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "0",
+              "text": "No",
+              "disqualify": true
+            },
+            {
+              "value": "1",
+              "text": "Yes"
+            }
+          ]
+        }
+      ]
+    },
+    "favorite_game": {
+      "items": [
+        {
+          "id": "favorite",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "What is your <b>most favorite mobile game</b> of all time?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "text",
+            "required": true
+          }
+        }
+      ]
+    },
+    "genre": {
+      "pages": 1,
+      "controller": "genre",
+      "items": [
+        {
+          "id": "genre",
+          "randomized": true,
+          "title": "<b>How do you feel about the following types of mobile games?</b>",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "puzzle",
+                  "genre": [
+                    "puzzle"
+                  ],
+                  "app_ids": [
+                    "com.king.candycrushsaga",
+                    "com.peoplefun.wordcross",
+                    "net.wooga.junes_journey_hidden_object_mystery_game",
+                    "com.rovio.baba",
+                    "com.ustwo.monumentvalley"
+                  ],
+                  "text": "<b>Puzzles</b>"
+                },
+                {
+                  "id": "slot",
+                  "genre": [
+                    "slot"
+                  ],
+                  "app_ids": [
+                    "com.moonactive.coinmaster",
+                    "air.com.playtika.slotomania"
+                  ],
+                  "text": "<b>Slots</b>"
+                },
+                {
+                  "id": "story",
+                  "genre": [
+                    "story"
+                  ],
+                  "app_ids": [
+                    "com.episodeinteractive.android.catalog",
+                    "com.mars.avgchapters"
+                  ],
+                  "text": "<b>Interactive story</b>"
+                },
+                {
+                  "id": "custom",
+                  "genre": [
+                    "custom"
+                  ],
+                  "app_ids": [
+                    "com.crowdstar.covetHome",
+                    "com.crowdstar.covetfashion",
+                    "com.elex.nikkigp"
+                  ],
+                  "text": "<b>Customization</b>"
+                },
+                {
+                  "id": "strat",
+                  "genre": [
+                    "strat"
+                  ],
+                  "app_ids": [
+                    "com.supercell.clashofclans",
+                    "com.topgamesinc.evony",
+                    "com.kingsgroup.sos",
+                    "com.lilithgame.roc.gp"
+                  ],
+                  "text": "<b>Strategy</b>"
+                },
+                {
+                  "id": "rpg",
+                  "genre": [
+                    "rpg"
+                  ],
+                  "app_ids": [
+                    "com.foxnextgames.m3",
+                    "com.plarium.raidlegends"
+                  ],
+                  "text": "<b>Role Playing Games</b>"
+                },
+                {
+                  "id": "sim",
+                  "genre": [
+                    "sim"
+                  ],
+                  "app_ids": [
+                    "com.supercell.hayday",
+                    "com.playrix.township",
+                    "com.ea.game.simcitymobile_row",
+                    "com.fluffyfairygames.idleminertycoon",
+                    "com.ea.gp.simsmobile",
+                    "com.roblox.client"
+                  ],
+                  "text": "<b>Simulations</b>"
+                },
+                {
+                  "id": "act",
+                  "genre": [
+                    "act"
+                  ],
+                  "app_ids": [
+                    "com.tencent.ig",
+                    "com.supercell.brawlstars",
+                    "com.habby.archero",
+                    "com.nianticlabs.pokemongo"
+                  ],
+                  "text": "<b>Action</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "puzzle",
+          "genre": "puzzle",
+          "randomized": true,
+          "title": "In the previous answer you mentioned mobile puzzle games. <b>How do you feel about the following types of puzzles?</b>",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "merge",
+                  "genre": [
+                    "match",
+                    "merge"
+                  ],
+                  "app_ids": [
+                    "com.king.candycrushsaga",
+                    "net.peakgames.amy",
+                    "com.gramgames.mergedragons"
+                  ],
+                  "text": "<b>Matching or Merge puzzles</b>"
+                },
+                {
+                  "id": "word",
+                  "genre": [
+                    "word"
+                  ],
+                  "app_ids": [
+                    "com.peoplefun.wordcross",
+                    "net.supertreat.solitaire"
+                  ],
+                  "text": "<b>Word or Card puzzles</b>"
+                },
+                {
+                  "id": "hidden",
+                  "genre": [
+                    "hidden"
+                  ],
+                  "app_ids": [
+                    "net.wooga.junes_journey_hidden_object_mystery_game",
+                    "com.mytona.seekersnotes.android"
+                  ],
+                  "text": "<b>Hidden object puzzles</b>"
+                },
+                {
+                  "id": "physics",
+                  "genre": [
+                    "physics"
+                  ],
+                  "app_ids": [
+                    "com.rovio.baba",
+                    "com.zeptolab.ctr.ads",
+                    "com.twodboy.worldofgoofull"
+                  ],
+                  "text": "<b>Puzzles with physics</b>"
+                },
+                {
+                  "id": "escape",
+                  "genre": [
+                    "escape"
+                  ],
+                  "app_ids": [
+                    "com.ustwo.monumentvalley",
+                    "com.squareenixmontreal.lcgo",
+                    "com.FireproofStudios.TheRoom"
+                  ],
+                  "text": "<b>Escape or Maze puzzles</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sim",
+          "genre": "sim",
+          "randomized": true,
+          "title": "In the previous answer you mentioned mobile simulation games. <b>How do you feel about the following types of simulations?</b>",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "tycoon",
+                  "genre": [
+                    "tycoon"
+                  ],
+                  "app_ids": [
+                    "com.supercell.hayday",
+                    "com.playrix.township",
+                    "com.ea.game.simcitymobile_row",
+                    "com.socialquantum.acityint"
+                  ],
+                  "text": "<b>Tycoon</b>"
+                },
+                {
+                  "id": "idle",
+                  "genre": [
+                    "idle"
+                  ],
+                  "app_ids": [
+                    "com.fluffyfairygames.idleminertycoon",
+                    "com.lumber.inc",
+                    "com.kongregate.mobile.adventurecapitalist.google"
+                  ],
+                  "text": "<b>Idle tycoon</b>"
+                },
+                {
+                  "id": "life",
+                  "genre": [
+                    "life"
+                  ],
+                  "app_ids": [
+                    "com.ea.gp.simsmobile",
+                    "com.lockwoodpublishing.avakinlife"
+                  ],
+                  "text": "<b>Life simulations</b>"
+                },
+                {
+                  "id": "sandbox",
+                  "genre": [
+                    "sandbox"
+                  ],
+                  "app_ids": [
+                    "com.roblox.client",
+                    "com.mojang.minecraftpe"
+                  ],
+                  "text": "<b>Sandbox</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "act",
+          "genre": "act",
+          "randomized": true,
+          "title": "In the previous answer you mention mobile action games. <b>How do you feel about the following types of action games?</b>",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "act__no_shoot",
+                  "genre": [
+                    "no_shoot"
+                  ],
+                  "app_ids": [
+                    "com.supercell.brawlstars",
+                    "com.habby.archero",
+                    "com.zeptolab.cats.google"
+                  ],
+                  "text": "<b>Non-shooter Action</b>"
+                },
+                {
+                  "id": "act__yes_shoot",
+                  "genre": [
+                    "yes_shoot"
+                  ],
+                  "app_ids": [
+                    "com.tencent.ig"
+                  ],
+                  "text": "<b>Shooter Action</b>"
+                },
+                {
+                  "id": "act__ar",
+                  "genre": [
+                    "ar"
+                  ],
+                  "app_ids": [
+                    "com.nianticlabs.pokemongo"
+                  ],
+                  "text": "<b>Augmented Reality / Location</b>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "0",
+              "text": "I don’t know this type"
+            },
+            {
+              "value": "1",
+              "text": "I don’t like these games"
+            },
+            {
+              "value": "2",
+              "text": "These games are okay"
+            },
+            {
+              "value": "3",
+              "text": "I enjoy these games"
+            },
+            {
+              "value": "4",
+              "text": "I love these games"
+            }
+          ]
+        }
+      ]
+    },
+    "needs": {
+      "items": [
+        {
+          "id": "needs",
+          "questions": [
+            {
+              "options": "needs",
+              "items": [
+                {
+                  "id": "needs",
+                  "text": "What would you want from an <b>ideal mobile game</b>? <span class='check-max'>Select up to 3 choices.</span>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "needs",
+          "randomized": true,
+          "validation": {
+            "type": "check",
+            "max_checked": 3
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "To get knowledge"
+            },
+            {
+              "value": "2",
+              "text": "To train my skills (any)"
+            },
+            {
+              "value": "3",
+              "text": "To have a variety of content"
+            },
+            {
+              "value": "4",
+              "text": "To get something rare"
+            },
+            {
+              "value": "5",
+              "text": "To accomplish something great"
+            },
+            {
+              "value": "6",
+              "text": "To own something by myself"
+            },
+            {
+              "value": "7",
+              "text": "To grow value of something"
+            },
+            {
+              "value": "8",
+              "text": "To be in control"
+            },
+            {
+              "value": "9",
+              "text": "To protect something"
+            },
+            {
+              "value": "10",
+              "text": "To perform any physical activity"
+            },
+            {
+              "value": "11",
+              "text": "To relax"
+            },
+            {
+              "value": "12",
+              "text": "To be known"
+            },
+            {
+              "value": "13",
+              "text": "To be part of the group"
+            },
+            {
+              "value": "14",
+              "text": "To help / care for others"
+            },
+            {
+              "value": "15",
+              "text": "To be exceptional"
+            },
+            {
+              "value": "16",
+              "text": "To be followed by others"
+            },
+            {
+              "value": "17",
+              "text": "To be able to rely on someone"
+            },
+            {
+              "value": "18",
+              "text": "To experience romantic / intimate relationship"
+            }
+          ]
+        }
+      ]
+    },
+    "behaviours": {
+      "items": [
+        {
+          "id": "behaviours_1",
+          "title": "How much do you enjoy <b>following activities</b> in mobile games? (1/2)",
+          "randomized": true,
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "<b>Building and managing cities, parks or companies</b>"
+                },
+                {
+                  "id": "2",
+                  "text": "<b>Planning or deciding the best way to achieve something</b>"
+                },
+                {
+                  "id": "3",
+                  "text": "<b>Fast-paced and intense gameplay</b>"
+                },
+                {
+                  "id": "4",
+                  "text": "<b>Going up against others in battles or matches</b>"
+                },
+                {
+                  "id": "5",
+                  "text": "<b>Interesting characters in a game world or story</b>"
+                },
+                {
+                  "id": "6",
+                  "text": "<b>Destroying game environment or enemies</b>"
+                },
+                {
+                  "id": "7",
+                  "text": "<b>Exploring the game world or content</b>"
+                },
+                {
+                  "id": "8",
+                  "text": "<b>Cooperating with others</b>"
+                },
+                {
+                  "id": "9",
+                  "text": "<b>Practicing and mastering a difficult gameplay</b>"
+                },
+                {
+                  "id": "10",
+                  "text": "<b>Growing / powering up your game objects, characters or items</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "behaviours_2",
+          "title": "How much do you enjoy following activities in mobile games? (2/2)",
+          "randomized": true,
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "11",
+                  "text": "<b>Helping or caring for others</b>"
+                },
+                {
+                  "id": "12",
+                  "text": "<b>Collecting in-game items or valuables</b>"
+                },
+                {
+                  "id": "13",
+                  "text": "<b>Following a game story</b>"
+                },
+                {
+                  "id": "14",
+                  "text": "<b>Open game where you can experiment or do what you want</b>"
+                },
+                {
+                  "id": "15",
+                  "text": "<b>Competing with others</b>"
+                },
+                {
+                  "id": "16",
+                  "text": "<b>Solving challenges or puzzles</b>"
+                },
+                {
+                  "id": "17",
+                  "text": "<b>Designing and decorating interior / exterior or a character</b>"
+                },
+                {
+                  "id": "18",
+                  "text": "<b>Completing various tasks or levels</b>"
+                },
+                {
+                  "id": "19",
+                  "text": "<b>Contemplative and calm gameplay</b>"
+                },
+                {
+                  "id": "20",
+                  "text": "<b>Relaxing and enjoying a simple gameplay</b>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "I don't like this"
+            },
+            {
+              "value": "2",
+              "text": "It's okay as a side element"
+            },
+            {
+              "value": "3",
+              "text": "I enjoy this"
+            }
+          ]
+        }
+      ]
+    },
+    "competitors": {
+      "pages": 0,
+      "controller": "competitors",
+      "items": [
+        {
+          "id": "c_idle",
+          "title": "How do you <b>relate to each of these idle tycoons</b>?",
+          "genre": "idle",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.lumber.inc"],
+                  "text": "<b>Lumber INC</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.fluffyfairygames.idleminertycoon"],
+                  "text": "<b>Idle Miner Tycoon</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.codigames.idle.prison.empire.manager.tycoon"],
+                  "text": "<b>Prison Empire Tycoon</b>"
+                },
+                {
+                  "id": "4",
+                  "app_ids": ["com.kongregate.mobile.adventurecapitalist.google"],
+                  "text": "<b>Adventure Capitalist</b>"
+                },
+                {
+                  "id": "5",
+                  "app_ids": ["com.codigames.idle.theme.park.tycoon"],
+                  "text": "<b>Idle Theme Park Tycoon</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_tycoon",
+          "title": "How do you <b>relate to each of these tycoons</b>?",
+          "genre": "tycoon",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.vizorapps.klondike"],
+                  "text": "<b>Klondike Adventures</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.MelsoftGames.FamilyIslandFarm"],
+                  "text": "<b>Family Island</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.gameinsight.airport"],
+                  "text": "<b>Airport City</b>"
+                },
+                {
+                  "id": "4",
+                  "app_ids": ["com.playrix.township"],
+                  "text": "<b>Township</b>"
+                },
+                {
+                  "id": "5",
+                  "app_ids": ["com.ea.game.simcitymobile_row"],
+                  "text": "<b>SimCity BuildIt</b>"
+                },
+                {
+                  "id": "6",
+                  "app_ids": ["com.socialquantum.acityint"],
+                  "text": "<b>Megapolis</b>"
+                },
+                {
+                  "id": "7",
+                  "app_ids": ["com.sgs.emhq.android"],
+                  "text": "<b>Emergency HQ</b>"
+                },
+                {
+                  "id": "8",
+                  "app_ids": ["com.supercell.hayday"],
+                  "text": "<b>Hay Day</b>"
+                },
+                {
+                  "id": "9",
+                  "app_ids": ["es.socialpoint.DragonCity"],
+                  "text": "<b>Dragon City</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_hidden",
+          "title": "How do you <b>relate to each of these hidden object puzzles</b>?",
+          "genre": "hidden",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.nordcurrent.murderinalps"],
+                  "text": "<b>Murder in Alps: Hidden Mystery</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.mytona.seekersnotes.android"],
+                  "text": "<b>Seeker's Notes</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.wooga.pearlsperil"],
+                  "text": "<b>Peal's Peril</b>"
+                },
+                {
+                  "id": "4",
+                  "app_ids": ["net.wooga.junes_journey_hidden_object_mystery_game"],
+                  "text": "<b>June's Journey</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_match",
+          "title": "How do you <b>relate to each of these match 3 puzzles</b>?",
+          "genre": "match",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["dk.tactile.lilysgarden"],
+                  "text": "<b>Lily's Garden</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.king.candycrushsaga"],
+                  "text": "<b>Candy Crush Saga</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.playrix.gardenscapes"],
+                  "text": "<b>Gardenscapes</b>"
+                },
+                {
+                  "id": "4",
+                  "app_ids": ["com.funtomic.matchmasters"],
+                  "text": "<b>Match Masters</b>"
+                },
+                {
+                  "id": "5",
+                  "app_ids": ["com.dreamgames.royalmatch"],
+                  "text": "<b>Royal Match</b>"
+                },
+                {
+                  "id": "6",
+                  "app_ids": ["net.peakgames.toonblast"],
+                  "text": "<b>Toon Blast</b>"
+                },
+                {
+                  "id": "7",
+                  "app_ids": ["com.bgg.jump"],
+                  "text": "<b>Project Makeover</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_merge",
+          "title": "How do you <b>relate to each of these merge puzzles</b>?",
+          "genre": "merge",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.bigfishgames.mergetalesgoog"],
+                  "text": "<b>Ever Merge</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.everywear.game5"],
+                  "text": "<b>Merge Mansion</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.gramgames.mergedragons"],
+                  "text": "<b>Merge Dragons</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_word",
+          "title": "How do you <b>relate to each of these word / card puzzles</b>?",
+          "genre": "word",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.peoplefun.wordcross"],
+                  "text": "<b>Wordscapes</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["net.supertreat.solitaire"],
+                  "text": "<b>Solitaire Grand Harvest</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_physics",
+          "title": "How do you <b>relate to each of these puzzles with physics</b>?",
+          "genre": "physics",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.rovio.baba"],
+                  "text": "<b>Angry Birds 2</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.zeptolab.ctr.ads"],
+                  "text": "<b>Cut the Rope</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.twodboy.worldofgoofull"],
+                  "text": "<b>World of Goo</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_escape",
+          "title": "How do you <b>relate to each of these escape / maze puzzles</b>?",
+          "genre": "escape",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.ustwo.monumentvalley"],
+                  "text": "<b>Monument Valley</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.squareenixmontreal.lcgo"],
+                  "text": "<b>Lara Croft GO</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["air.com.pixelfederation.diggy"],
+                  "text": "<b>Diggy's Adventure</b>"
+                },
+                {
+                  "id": "4",
+                  "app_ids": ["com.FireproofStudios.TheRoom"],
+                  "text": "<b>The Room</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_strat",
+          "title": "How do you <b>relate to each of these strategy games</b>?",
+          "genre": "strat",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.topgamesinc.evony"],
+                  "text": "<b>Evony</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.supercell.clashofclans"],
+                  "text": "<b>Clash of Clans</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.funplus.kingofavalon"],
+                  "text": "<b>King of Avalon</b>"
+                },
+                {
+                  "id": "4",
+                  "app_ids": ["com.kingsgroup.sos"],
+                  "text": "<b>State of Survival</b>"
+                },
+                {
+                  "id": "5",
+                  "app_ids": ["com.lilithgame.roc.gp"],
+                  "text": "<b>Rise of Kingdoms</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_act",
+          "title": "How do you <b>relate to each of these action games</b>?",
+          "genre": "act",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.supercell.clashroyale"],
+                  "text": "<b>Clash Royale</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.supercell.brawlstars"],
+                  "text": "<b>Brawl Stars</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.habby.archero"],
+                  "text": "<b>Archero</b>"
+                },
+                {
+                  "id": "4",
+                  "app_ids": ["com.tencent.ig"],
+                  "text": "<b>PUBG Mobile</b>"
+                },
+                {
+                  "id": "5",
+                  "app_ids": ["com.zeptolab.cats.google"],
+                  "text": "<b>CATS: Crash Arena Turbo Stars</b>"
+                },
+                {
+                  "id": "6",
+                  "app_ids": ["com.nianticlabs.pokemongo"],
+                  "text": "<b>Pokemon GO</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_story",
+          "title": "How do you <b>relate to each of these interactive story games</b>?",
+          "genre": "story",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.mars.avgchapters"],
+                  "text": "<b>Chapters: Interactive Stories</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.episodeinteractive.android.catalog"],
+                  "text": "<b>Episode - Choose Your Story</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c_sim",
+          "title": "How do you <b>relate to each of these life simulation games</b>?",
+          "genre": "sim",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "app_ids": ["com.lockwoodpublishing.avakinlife"],
+                  "text": "<b>Avakin life 3D</b>"
+                },
+                {
+                  "id": "2",
+                  "app_ids": ["com.ea.gp.simsmobile"],
+                  "text": "<b>The Sims</b>"
+                },
+                {
+                  "id": "3",
+                  "app_ids": ["com.codigames.idle.game.tycoon.life.sims"],
+                  "text": "<b>Idle Life Sim</b>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Never heard of it"
+            },
+            {
+              "value": "2",
+              "text": "Never played"
+            },
+            {
+              "value": "3",
+              "text": "Played it a little"
+            },
+            {
+              "value": "4",
+              "text": "Used to play it a lot"
+            },
+            {
+              "value": "5",
+              "text": "Currently play it"
+            }
+          ]
+        }
+      ]
+    },
+    "spent": {
+      "items": [
+        {
+          "id": "spending",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "spending",
+                  "text": "In the past <b>1 month</b>, how much would you say you have <b>spent within mobile games</b>?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "$0"
+            },
+            {
+              "value": "2",
+              "text": "$1 - $10"
+            },
+            {
+              "value": "3",
+              "text": "$11 - $20"
+            },
+            {
+              "value": "4",
+              "text": "$21 - $50"
+            },
+            {
+              "value": "5",
+              "text": "$51 - $100"
+            },
+            {
+              "value": "6",
+              "text": "$101 - $500"
+            },
+            {
+              "value": "7",
+              "text": "$501 - $1000"
+            },
+            {
+              "value": "8",
+              "text": "$1,000"
+            }
+          ]
+        }
+      ]
+    },
+    "playing_time": {
+      "items": [
+        {
+          "id": "playing",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "playing",
+                  "text": "In a typical <b>week, how much time</b> do you <b>spend playing mobile games</b>?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Less than 1 hour"
+            },
+            {
+              "value": "2",
+              "text": "1 – 5 hours"
+            },
+            {
+              "value": "3",
+              "text": "6 – 10 hours"
+            },
+            {
+              "value": "4",
+              "text": "11 – 15 hours"
+            },
+            {
+              "value": "5",
+              "text": "More than 15 hours"
+            },
+            {
+              "value": "6",
+              "text": "Don’t know"
+            }
+          ]
+        }
+      ]
+    },
+    "routine": {
+      "pages": 1,
+      "controller": "routine",
+      "items": [
+        {
+          "id": "routine",
+          "questions": [
+            {
+              "options": "routine",
+              "items": [
+                {
+                  "id": "routine",
+                  "text": "Which of the following <b>activities</b> are <b>part</b> of your <b>regular routine</b>? <span class='check-max'>Select up to 3 choices.</span>"
+                }
+              ]
+            },
+            {
+              "options": "other",
+              "items": [
+                {
+                  "id": "other",
+                  "text": "Other - write in"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hobbies",
+          "questions": [
+            {
+              "options": "hobbies",
+              "items": [
+                {
+                  "id": "hobbies",
+                  "text": "In the previous answer you mentioned you engage in hobbies. <b>Which hobbies do you like the most</b>? <span class='check-max'>Select up to 3 choices.</span>"
+                }
+              ]
+            },
+            {
+              "options": "other",
+              "items": [
+                {
+                  "id": "other",
+                  "text": "Other - write in"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "movies",
+          "questions": [
+            {
+              "options": "movies",
+              "items": [
+                {
+                  "id": "movies",
+                  "text": "In the previous answer you mentioned watching movies / shows. <b>Which movie genres do you like the most</b>? <span class='check-max'>Select up to 3 choices.</span>"
+                }
+              ]
+            },
+            {
+              "options": "other",
+              "items": [
+                {
+                  "id": "other",
+                  "text": "Other - write in"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "socials",
+          "questions": [
+            {
+              "options": "socials",
+              "items": [
+                {
+                  "id": "socials",
+                  "text": "In the previous answer you mentioned using social media. <b>Which social platforms do you use the most</b>? <span class='check-max'>Select up to 3 choices.</span>"
+                }
+              ]
+            },
+            {
+              "options": "other",
+              "items": [
+                {
+                  "id": "other",
+                  "text": "Other - write in"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "routine",
+          "randomized": true,
+          "validation": {
+            "type": "check_with_other",
+            "max_checked": 3
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Working"
+            },
+            {
+              "value": "2",
+              "text": "Engaging in hobbies",
+              "routine": "hobbies"
+            },
+            {
+              "value": "3",
+              "text": "Reading"
+            },
+            {
+              "value": "4",
+              "text": "Using social media",
+              "routine": "socials"
+            },
+            {
+              "value": "5",
+              "text": "Following news"
+            },
+            {
+              "value": "6",
+              "text": "Learning new things"
+            },
+            {
+              "value": "7",
+              "text": "Listening to music"
+            },
+            {
+              "value": "8",
+              "text": "Watching movies / shows",
+              "routine": "movies"
+            },
+            {
+              "value": "9",
+              "text": "Spending time with partner"
+            },
+            {
+              "value": "10",
+              "text": "Spending time with friends"
+            },
+            {
+              "value": "11",
+              "text": "Parenting"
+            },
+            {
+              "value": "12",
+              "text": "Taking care of pets"
+            },
+            {
+              "value": "13",
+              "text": "Playing video games"
+            }
+          ]
+        },
+        {
+          "id": "hobbies",
+          "randomized": true,
+          "validation": {
+            "type": "check_with_other",
+            "max_checked": 3
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Collecting"
+            },
+            {
+              "value": "2",
+              "text": "Designing / engineering"
+            },
+            {
+              "value": "3",
+              "text": "Teaching / training others"
+            },
+            {
+              "value": "4",
+              "text": "Serving community / society"
+            },
+            {
+              "value": "5",
+              "text": "Fishing / hunting"
+            },
+            {
+              "value": "6",
+              "text": "Farming / gardening"
+            },
+            {
+              "value": "7",
+              "text": "Performing arts"
+            },
+            {
+              "value": "8",
+              "text": "Driving / maintaining vehicles"
+            },
+            {
+              "value": "9",
+              "text": "Building / fixing things"
+            },
+            {
+              "value": "10",
+              "text": "Cooking / preparing meals"
+            },
+            {
+              "value": "11",
+              "text": "Exercising / performing sports"
+            },
+            {
+              "value": "12",
+              "text": "Photography"
+            },
+            {
+              "value": "13",
+              "text": "DIY / Decorating interiors"
+            },
+            {
+              "value": "14",
+              "text": "Landscaping / gardening"
+            },
+            {
+              "value": "15",
+              "text": "Watching others play games"
+            },
+            {
+              "value": "16",
+              "text": "Watching classic sports"
+            }
+          ]
+        },
+        {
+          "id": "movies",
+          "randomized": true,
+          "validation": {
+            "type": "check_with_other",
+            "max_checked": 3
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Action / adventure"
+            },
+            {
+              "value": "2",
+              "text": "Anime"
+            },
+            {
+              "value": "3",
+              "text": "Children / family"
+            },
+            {
+              "value": "4",
+              "text": "Classic"
+            },
+            {
+              "value": "5",
+              "text": "Comedies"
+            },
+            {
+              "value": "6",
+              "text": "Criminal"
+            },
+            {
+              "value": "7",
+              "text": "Documentary"
+            },
+            {
+              "value": "8",
+              "text": "Drama"
+            },
+            {
+              "value": "9",
+              "text": "Horror"
+            },
+            {
+              "value": "10",
+              "text": "Romantic"
+            },
+            {
+              "value": "11",
+              "text": "Fantasy"
+            },
+            {
+              "value": "12",
+              "text": "Sci-fi"
+            },
+            {
+              "value": "13",
+              "text": "Thriller"
+            },
+            {
+              "value": "14",
+              "text": "Reality shows"
+            }
+          ]
+        },
+        {
+          "id": "socials",
+          "randomized": true,
+          "validation": {
+            "type": "check_with_other",
+            "max_checked": 3
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Facebook"
+            },
+            {
+              "value": "2",
+              "text": "Instagram"
+            },
+            {
+              "value": "3",
+              "text": "Youtube"
+            },
+            {
+              "value": "4",
+              "text": "Whatsapp"
+            },
+            {
+              "value": "5",
+              "text": "Pinterest"
+            },
+            {
+              "value": "6",
+              "text": "Linkedin"
+            },
+            {
+              "value": "7",
+              "text": "Twitter"
+            },
+            {
+              "value": "8",
+              "text": "Snapchat"
+            },
+            {
+              "value": "9",
+              "text": "Discord"
+            },
+            {
+              "value": "10",
+              "text": "Twitch"
+            },
+            {
+              "value": "11",
+              "text": "Reddit"
+            },
+            {
+              "value": "12",
+              "text": "TikTok"
+            },
+            {
+              "value": "13",
+              "text": "Telegram"
+            }
+          ]
+        },
+        {
+          "id": "other",
+          "validation": {
+            "type": "text"
+          }
+        }
+      ]
+    },
+    "themes": {
+      "pages": 1,
+      "controller": "themes",
+      "items": [
+        {
+          "id": "themes",
+          "questions": [
+            {
+              "options": "themes",
+              "items": [
+                {
+                  "id": "themes",
+                  "text": "Which <b>topics / themes</b> would you <b>like</b> in an <b>ideal mobile game</b>? <span class='check-max'>Select up to 3 choices</span>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "topics",
+          "questions": [
+            {
+              "options": "{{theme}}",
+              "items": [
+                {
+                  "id": "{{theme}}",
+                  "text": "Which of the topics related to the theme {{theme}} do you find <b>most interesting</b>?"
+                }
+              ]
+            },
+            {
+              "options": "open",
+              "items": [
+                {
+                  "id": "open",
+                  "text": "Other - write in"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "themes",
+          "randomized": true,
+          "validation": {
+            "type": "check",
+            "max_checked": 3
+          },
+          "items": [
+            {
+              "value": "adventure",
+              "text": "<b>Adventure</b>"
+            },
+            {
+              "value": "fantasy",
+              "text": "<b>Fantasy</b>"
+            },
+            {
+              "value": "mystery",
+              "text": "<b>Mystery</b>"
+            },
+            {
+              "value": "animals",
+              "text": "<b>Animals</b>"
+            },
+            {
+              "value": "music",
+              "text": "<b>Music</b>"
+            },
+            {
+              "value": "survival",
+              "text": "<b>Survival</b>"
+            },
+            {
+              "value": "scifi",
+              "text": "<b>Sci-Fi</b>"
+            },
+            {
+              "value": "sports",
+              "text": "<b>Sports</b>"
+            },
+            {
+              "value": "weapons",
+              "text": "<b>Weapons</b>"
+            },
+            {
+              "value": "crime",
+              "text": "<b>Crime</b>"
+            },
+            {
+              "value": "food",
+              "text": "<b>Food</b>"
+            },
+            {
+              "value": "technology",
+              "text": "<b>Technology</b>"
+            },
+            {
+              "value": "nature",
+              "text": "<b>Nature</b>"
+            },
+            {
+              "value": "realism",
+              "text": "<b>Realism</b>"
+            },
+            {
+              "value": "history",
+              "text": "<b>History</b>"
+            },
+            {
+              "value": "island",
+              "text": "<b>Island</b>"
+            },
+            {
+              "value": "garden",
+              "text": "<b>Garden</b>"
+            },
+            {
+              "value": "family",
+              "text": "<b>Family</b>"
+            },
+            {
+              "value": "cars",
+              "text": "<b>Cars</b>"
+            },
+            {
+              "value": "farm",
+              "text": "<b>Farm</b>"
+            },
+            {
+              "value": "city",
+              "text": "<b>City</b>"
+            },
+            {
+              "value": "military",
+              "text": "<b>Military</b>"
+            },
+            {
+              "value": "fashion",
+              "text": "<b>Fashion</b>"
+            },
+            {
+              "value": "romance",
+              "text": "<b>Romance</b>"
+            },
+            {
+              "value": "vehicles",
+              "text": "<b>Vehicles</b>"
+            },
+            {
+              "value": "luxury",
+              "text": "<b>Luxury</b>"
+            },
+            {
+              "value": "interior",
+              "text": "<b>Interior</b>"
+            },
+            {
+              "value": "architecture",
+              "text": "<b>Architecture</b>"
+            },
+            {
+              "value": "business",
+              "text": "<b>Business</b>"
+            }
+          ]
+        },
+        {
+          "id": "adventure",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Explore"
+            },
+            {
+              "value": "2",
+              "text": "Travel"
+            },
+            {
+              "value": "3",
+              "text": "Survive"
+            },
+            {
+              "value": "4",
+              "text": "Action"
+            }
+          ]
+        },
+        {
+          "id": "fantasy",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Sword & magic"
+            },
+            {
+              "value": "2",
+              "text": "Superheroes"
+            },
+            {
+              "value": "3",
+              "text": "Gods & demons"
+            },
+            {
+              "value": "4",
+              "text": "Fables"
+            }
+          ]
+        },
+        {
+          "id": "mystery",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Crime"
+            },
+            {
+              "value": "2",
+              "text": "Conspiracy"
+            },
+            {
+              "value": "3",
+              "text": "Supernatural"
+            },
+            {
+              "value": "4",
+              "text": "Detective"
+            }
+          ]
+        },
+        {
+          "id": "animals",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Pets"
+            },
+            {
+              "value": "2",
+              "text": "Exotic"
+            },
+            {
+              "value": "3",
+              "text": "Marine"
+            },
+            {
+              "value": "4",
+              "text": "Farm"
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Dance"
+            },
+            {
+              "value": "2",
+              "text": "Sing"
+            },
+            {
+              "value": "3",
+              "text": "Chill"
+            },
+            {
+              "value": "4",
+              "text": "Background"
+            }
+          ]
+        },
+        {
+          "id": "survival",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Zombies"
+            },
+            {
+              "value": "2",
+              "text": "Wilderness"
+            },
+            {
+              "value": "3",
+              "text": "Disaster"
+            },
+            {
+              "value": "4",
+              "text": "Battle"
+            }
+          ]
+        },
+        {
+          "id": "scifi",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Universe"
+            },
+            {
+              "value": "2",
+              "text": "Aliens"
+            },
+            {
+              "value": "3",
+              "text": "Future"
+            },
+            {
+              "value": "4",
+              "text": "Technology"
+            }
+          ]
+        },
+        {
+          "id": "sports",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Individual"
+            },
+            {
+              "value": "2",
+              "text": "Team"
+            },
+            {
+              "value": "3",
+              "text": "Fitness"
+            },
+            {
+              "value": "4",
+              "text": "Martial arts"
+            }
+          ]
+        },
+        {
+          "id": "weapons",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Guns"
+            },
+            {
+              "value": "2",
+              "text": "High-tech"
+            },
+            {
+              "value": "3",
+              "text": "Mass destruction"
+            },
+            {
+              "value": "4",
+              "text": "Melee"
+            }
+          ]
+        },
+        {
+          "id": "crime",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Police"
+            },
+            {
+              "value": "2",
+              "text": "Criminals"
+            },
+            {
+              "value": "3",
+              "text": "Theft"
+            },
+            {
+              "value": "4",
+              "text": "Murder"
+            }
+          ]
+        },
+        {
+          "id": "food",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Recipes"
+            },
+            {
+              "value": "2",
+              "text": "Pizza"
+            },
+            {
+              "value": "3",
+              "text": "Sweets"
+            },
+            {
+              "value": "4",
+              "text": "Grill"
+            }
+          ]
+        },
+        {
+          "id": "technology",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Electronics"
+            },
+            {
+              "value": "2",
+              "text": "Software"
+            },
+            {
+              "value": "3",
+              "text": "Mechanics"
+            },
+            {
+              "value": "4",
+              "text": "Robots"
+            }
+          ]
+        },
+        {
+          "id": "nature",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Trees"
+            },
+            {
+              "value": "2",
+              "text": "Animals"
+            },
+            {
+              "value": "3",
+              "text": "Mountains"
+            },
+            {
+              "value": "4",
+              "text": "Water"
+            }
+          ]
+        },
+        {
+          "id": "realism",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Life"
+            },
+            {
+              "value": "2",
+              "text": "People"
+            },
+            {
+              "value": "3",
+              "text": "Truth"
+            },
+            {
+              "value": "4",
+              "text": "Document"
+            }
+          ]
+        },
+        {
+          "id": "garden",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Flowers"
+            },
+            {
+              "value": "2",
+              "text": "Plants"
+            },
+            {
+              "value": "3",
+              "text": "Trees"
+            },
+            {
+              "value": "4",
+              "text": "Vegetables"
+            }
+          ]
+        },
+        {
+          "id": "family",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Love"
+            },
+            {
+              "value": "2",
+              "text": "Generations"
+            },
+            {
+              "value": "3",
+              "text": "Kids"
+            },
+            {
+              "value": "4",
+              "text": "Heritage"
+            }
+          ]
+        },
+        {
+          "id": "cars",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Sport"
+            },
+            {
+              "value": "2",
+              "text": "Luxury"
+            },
+            {
+              "value": "3",
+              "text": "Personal"
+            },
+            {
+              "value": "4",
+              "text": "Delivery"
+            }
+          ]
+        },
+        {
+          "id": "farm",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Animals"
+            },
+            {
+              "value": "2",
+              "text": "Crops"
+            },
+            {
+              "value": "3",
+              "text": "Trees"
+            },
+            {
+              "value": "4",
+              "text": "Garden"
+            }
+          ]
+        },
+        {
+          "id": "city",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Building"
+            },
+            {
+              "value": "2",
+              "text": "People"
+            },
+            {
+              "value": "3",
+              "text": "Busy"
+            },
+            {
+              "value": "4",
+              "text": "Traffic"
+            }
+          ]
+        },
+        {
+          "id": "military",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Wars"
+            },
+            {
+              "value": "2",
+              "text": "History"
+            },
+            {
+              "value": "3",
+              "text": "Weapons"
+            },
+            {
+              "value": "4",
+              "text": "Strategy"
+            }
+          ]
+        },
+        {
+          "id": "fashion",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Clothes"
+            },
+            {
+              "value": "2",
+              "text": "Accessories"
+            },
+            {
+              "value": "3",
+              "text": "Cosmetics"
+            },
+            {
+              "value": "4",
+              "text": "Shoes"
+            }
+          ]
+        },
+        {
+          "id": "romance",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Love"
+            },
+            {
+              "value": "2",
+              "text": "Relationships"
+            },
+            {
+              "value": "3",
+              "text": "Sex"
+            },
+            {
+              "value": "4",
+              "text": "Marriage"
+            }
+          ]
+        },
+        {
+          "id": "vehicles",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Motorcycles"
+            },
+            {
+              "value": "2",
+              "text": "Airplanes"
+            },
+            {
+              "value": "3",
+              "text": "Trucks"
+            },
+            {
+              "value": "4",
+              "text": "Trains"
+            }
+          ]
+        },
+        {
+          "id": "luxury",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Real estate"
+            },
+            {
+              "value": "2",
+              "text": "Cars"
+            },
+            {
+              "value": "3",
+              "text": "Jewellery"
+            },
+            {
+              "value": "4",
+              "text": "Yachts"
+            }
+          ]
+        },
+        {
+          "id": "interior",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Style"
+            },
+            {
+              "value": "2",
+              "text": "Home"
+            },
+            {
+              "value": "3",
+              "text": "Historic"
+            },
+            {
+              "value": "4",
+              "text": "Furniture"
+            }
+          ]
+        },
+        {
+          "id": "architecture",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Building"
+            },
+            {
+              "value": "2",
+              "text": "Design"
+            },
+            {
+              "value": "3",
+              "text": "Construction"
+            },
+            {
+              "value": "4",
+              "text": "Art"
+            }
+          ]
+        },
+        {
+          "id": "business",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Finance"
+            },
+            {
+              "value": "2",
+              "text": "Corporations"
+            },
+            {
+              "value": "3",
+              "text": "Startups"
+            },
+            {
+              "value": "4",
+              "text": "Investing"
+            }
+          ]
+        },
+        {
+          "id": "history",
+          "randomized": true,
+          "validation": {
+            "type": "radio"
+          },
+          "items": [
+            {
+              "value": "1",
+              "text": "Ancient"
+            },
+            {
+              "value": "2",
+              "text": "Medieval"
+            },
+            {
+              "value": "3",
+              "text": "Industrial"
+            },
+            {
+              "value": "4",
+              "text": "Modern"
+            }
+          ]
+        },
+        {
+          "id": "open",
+          "validation": {
+            "type": "text"
+          }
+        }
+      ]
+    },
+    "dcm": {
+      "pages": 9,
+      "controller": "dcm",
+      "items": [
+        {
+          "id": "dcm_intro",
+          "view": "dcm_intro",
+          "title": "You’re now going to see the set of mobile game ideas (multiple times).",
+          "questions": [
+            {
+              "items": [
+                {
+                  "id": "1",
+                  "text": "<b>Please choose only idea you would definitely install, if it existed as a game.</b>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dcm",
+          "title": "You’re now going to see the set of advertisement ideas for a mobile game ({{step_current}}/{{step_max}}).",
+          "questions": [
+            {
+              "options": "dcm",
+              "items": [
+                {
+                  "id": "dcm",
+                  "text": "Please choose only idea you would definitely install, if it existed as a game."
+                }
+              ]
+            }
+          ],
+          "dcm_title": [
+            {
+              "id": "none",
+              "title": "NONE",
+              "desc": "I wouldn't download any of the ideas.",
+              "is_none": true
+            },
+            {
+              "id": "myst",
+              "title": "Mystery Adventures",
+              "desc": "Complete cases in a world with supernatural creatures."
+            },
+            {
+              "id": "legend",
+              "title": "Legendary Adventures",
+              "desc": "Complete quests in various worlds with mythical creatures."
+            },
+            {
+              "id": "atlant",
+              "title": "Atlantis Adventures",
+              "desc": "Complete quests at the island with mythical civilization."
+            },
+            {
+              "id": "hp",
+              "title": "Harry Potter Adventures",
+              "desc": "Complete quests in a world with wizards and beasts."
+            },
+            {
+              "id": "surv",
+              "title": "Survival Adventures",
+              "desc": "Complete quests in a world with zombies."
+            },
+            {
+              "id": "army",
+              "title": "Army Adventures",
+              "desc": "Complete quests in a world with soldiers."
+            },
+            {
+              "id": "time",
+              "title": "Time-travel Adventures",
+              "desc": "Complete quests at various worlds with different civilizations."
+            },
+            {
+              "id": "hist",
+              "title": "Historic Adventures",
+              "desc": "Complete quests in various historical events with different characters."
+            },
+            {
+              "id": "scifi",
+              "title": "Sci-Fi Adventures",
+              "desc": "Complete quests at various planets with different civilizations."
+            },
+            {
+              "id": "mafia",
+              "title": "Mafia Adventures",
+              "desc": "Complete quests in a world with gangs and businesspeople."
+            }
+          ],
+          "dcm_features": [
+            {
+              "id": "1",
+              "items": [
+                {
+                  "id": "1",
+                  "text": "Solve word or card puzzles"
+                },
+                {
+                  "id": "2",
+                  "text": "Solve match or merge puzzles"
+                },
+                {
+                  "id": "3",
+                  "text": "Solve hidden object puzzles"
+                },
+                {
+                  "id": "4",
+                  "text": "Solve escape or maze puzzles"
+                },
+                {
+                  "id": "5",
+                  "text": "Solve puzzles with physics"
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "items": [
+                {
+                  "id": "1",
+                  "text": "Destroy game enemies"
+                },
+                {
+                  "id": "2",
+                  "text": "Help game characters"
+                },
+                {
+                  "id": "3",
+                  "text": "Explore various worlds"
+                },
+                {
+                  "id": "4",
+                  "text": "Follow funny stories"
+                },
+                {
+                  "id": "5",
+                  "text": "Follow dramatic stories"
+                },
+                {
+                  "id": "6",
+                  "text": "Play with other players"
+                },
+                {
+                  "id": "7",
+                  "text": "Build your place"
+                },
+                {
+                  "id": "8",
+                  "text": "Equip your game character"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "default",
+          "validation": {
+            "type": "none"
+          }
+        },
+        {
+          "id": "dcm",
+          "validation": {
+            "type": "radio"
+          },
+          "items": []
+        }
+      ]
+    }
+  }
+}
