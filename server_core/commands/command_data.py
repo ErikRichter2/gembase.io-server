@@ -38,3 +38,8 @@ class CommandData:
         if key not in self.metadata:
             return None
         return self.metadata[key]
+
+class FilesCommandData(CommandData):
+    def __init__(self):
+        self.files = []
+        super(FilesCommandData, self).__init__()

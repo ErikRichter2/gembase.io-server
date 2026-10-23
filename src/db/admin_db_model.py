@@ -14,7 +14,7 @@ class AdminDbModel(UserDbModel):
         assert self.is_admin()
         
     def get_clients_data(self):
-        rows_registered = self.conn().select_all("""
+        rows_registered = self.conn.select_all("""
                                               SELECT c.user_id, UNIX_TIMESTAMP(c.t) as t, m.email
                                                 FROM algo_clients.clients c
                                                INNER JOIN algo_users.users u
@@ -24,7 +24,7 @@ class AdminDbModel(UserDbModel):
                                                   ON m.id = u.email_id
                                               """)
         
-        rows_pending_register = self.conn().select_all("""
+        rows_pending_register = self.conn.select_all("""
                                                        SELECT r.id, 
                                                               r.uuid, 
                                                               r.email, 
@@ -45,19 +45,19 @@ class AdminDbModel(UserDbModel):
         }
         
     def delete_client_pending_registration(self, uuid: str):
-        self.conn().query("""
+        self.conn.query("""
                           DELETE FROM algo_clients.pending_register
                            WHERE uuid = %s
                           """, [uuid])
         
-        self.conn().query("""
+        self.conn.query("""
                         DELETE FROM algo_clients.pending_register_sent_emails
                         WHERE uuid = %s
                         """, [uuid])
 
     def create_client_pending_registration(self, email: str):
         
-        cnt = self.conn().select_one("""
+        cnt = self.conn.select_one("""
                                              SELECT count(1) as cnt
                                                FROM algo_clients.pending_register
                                               WHERE email = %s
@@ -68,14 +68,14 @@ class AdminDbModel(UserDbModel):
         
         uuid = Utils.get_guid()
         
-        self.conn().query("""
+        self.conn.query("""
                           INSERT INTO algo_clients.pending_register (uuid, email)
                           VALUES (%s, %s)
                           """, [uuid, email])
         
     def send_client_pending_registration_email(self, uuid: str):
         
-        email = self.conn().select_one("""
+        email = self.conn.select_one("""
                                        SELECT email
                                          FROM algo_clients.pending_register
                                         WHERE uuid = %s
@@ -97,7 +97,7 @@ class AdminDbModel(UserDbModel):
         )
         
         if email_data is not None:
-            self.conn().query("""
+            self.conn.query("""
                             INSERT INTO algo_clients.pending_register_sent_emails (uuid, email)
                             VALUES (%s, %s)
                             """, [uuid, json.dumps(email_data)])

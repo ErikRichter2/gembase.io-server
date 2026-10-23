@@ -11,36 +11,36 @@ class UserOrganizationDbModel(BaseUserDbModel):
         super(UserOrganizationDbModel, self).__init__(user_db=user_db)
     
     def organization_id(self) -> int:
-        row = self.conn().select_one("""
+        row = self.conn.select_one("""
         SELECT o.id
           FROM app.organization_users ou,
                app.organization o
          WHERE ou.organization_id = o.id
            AND ou.active = 1
            AND ou.user_id = %s
-        """, [self.user_id()])
+        """, [self.user_id])
 
         return row['id']
         
     def organization_exists(self):
-        row = self.conn().select_one_or_none("""
+        row = self.conn.select_one_or_none("""
         SELECT 1
           FROM app.organization_users ou,
                app.organization o
          WHERE ou.organization_id = o.id
            AND ou.active = 1
            AND ou.user_id = %s
-        """, [self.user_id()])
+        """, [self.user_id])
 
         return row is not None
     
     def get_credits(self) -> int:
-        row = self.conn().select_one_or_none("""
+        row = self.conn.select_one_or_none("""
         SELECT o.credits
           FROM app.organization_users ou
          INNER JOIN app.organization o ON o.id = ou.organization_id
          WHERE ou.user_id = %s
-        """, [self.user_id()])
+        """, [self.user_id])
 
         if row is None:
             return 0
@@ -53,7 +53,7 @@ class UserOrganizationDbModel(BaseUserDbModel):
 
         credits_before = self.get_credits()
         
-        self.conn().query("""
+        self.conn.query("""
         UPDATE gb_users.organization
            SET credits = credits + %s
          WHERE id = %s
@@ -64,6 +64,6 @@ class UserOrganizationDbModel(BaseUserDbModel):
         self.__conn.query("""
         INSERT INTO audit.users_credits (user_id, audit_guid, price, credits_before, context)
         VALUES (%s, %s, %s, %s, %s) 
-        """, [self.user_id(), audit_guid, credits_value, credits_before, json.dumps(context)])
+        """, [self.user_id, audit_guid, credits_value, credits_before, json.dumps(context)])
 
         return audit_guid

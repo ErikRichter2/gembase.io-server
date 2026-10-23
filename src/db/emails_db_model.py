@@ -13,7 +13,7 @@ class EmailsDbModel(BaseDbModel):
         try:
             if guid is None:
                 guid = Utils.get_guid()
-            self.conn().query("""
+            self.conn.query("""
                 INSERT INTO archive.users_sent_emails (guid, email, subject, body, email_def) 
                 VALUES (%s, %s, %s, %s, %s)
                 """, [guid, data["email"], data["subject"], data["body"], email_def])

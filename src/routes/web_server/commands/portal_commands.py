@@ -1,9 +1,10 @@
-from server_core.commands.command_data import CommandData
+from server_core.commands.command_data import CommandData, FilesCommandData
 from server_core.commands.commands_handler import CommandsHandler
 from server_core.utils.utils import Utils
-from src import session
 from src.db.games_db_model import GamesDbModel
 from src.db.user_app_search_db_model import UserAppSearchDbModel
+from src.db.user_portal_db_model import UserPortalDbModel
+from src.models.scraper.scraper_utils import ScraperUtils
 from src.models.user_obfuscator import UserObfuscator
 from src.session.users_session import UsersSession
 
@@ -17,23 +18,23 @@ portal_commands_handler = CommandsHandler(
 def portal__get_initial_data(session: UsersSession):
     return {
         "state": "ok",
-        "app_details": session.user_portal_db().get_my_apps(load_app_details=True),
-        "credits": session.user_db().get_credits(),
-        "unlocked_modules": session.user_billing_db().get_unlocked_modules(),
-        "def": session.user_platform_db().get_def(session.user_billing_db()),
-        "tutorial": session.user_tutorial_db().get_client_data()
+        "app_details": session.user_db.user_portal_db.get_my_apps(load_app_details=True),
+        "credits": session.user_db.get_credits(),
+        "unlocked_modules": session.user_db.user_billing_db.get_unlocked_modules(),
+        "def": session.user_db.user_platform_db.get_def(),
+        "tutorial": session.user_db.user_tutorial_db.get_client_data()
     }
 
 @portal_commands_handler.register("portal:get_developers_hints")
 def portal__get_developers_hints(session: UsersSession, data: CommandData):
-    return UserAppSearchDbModel(user_db=session.user_db(), search_model=session.user_db().get_search_model()).get_developers_hints(
+    return UserAppSearchDbModel(user_db=session.user_db, search_model=session.user_db.get_search_model()).get_developers_hints(
         title=data.ensure('title', Utils.is_string),
         include_concepts=data.try_ensure('include_concepts', Utils.is_bool, False)
     )
 
 @portal_commands_handler.register("portal:search_google_play_apps")
 def portal__search_google_play_apps(session: UsersSession, data: CommandData):
-    return UserAppSearchDbModel(user_db=session.user_db(), search_model=session.user_db().get_search_model()).search_app_by_title(
+    return UserAppSearchDbModel(user_db=session.user_db, search_model=session.user_db.get_search_model()).search_app_by_title(
         title=data.ensure('app_title', Utils.is_string),
         search_in_concepts=data.try_ensure('search_in_concepts', Utils.is_bool, False)
     )
@@ -59,7 +60,7 @@ def portal__get_app_details(session: UsersSession, data: CommandData):
 
     include_gallery = data.try_ensure('include_gallery', Utils.is_bool, False)
 
-    app_details = session.user_portal_db().get_apps_details(
+    app_details = session.user_db.user_portal_db.get_apps_details(
         apps_ids_int=apps_ids_int,
         include_gallery=include_gallery
     )
@@ -85,50 +86,43 @@ def portal__scrap_dev(session: UsersSession, data: CommandData):
         scrap_dev_apps=True
     )
 
-
-@command("portal:add_app_from_store_to_my_apps", [is_logged])
-def portal__add_app_from_store_to_my_apps(data: CommandData):
-    assert GembaseUtils.is_string(data.payload["app_id_in_store"], max_length=200)
-    assert GembaseUtils.is_int(data.payload["store"])
-
-    return gb_session().models().apps().add_app_from_store_to_my_apps(
-        app_id_in_store=data.payload["app_id_in_store"],
-        store=data.payload["store"]
+@portal_commands_handler.register("portal:add_app_from_store_to_my_apps")
+def portal__add_app_from_store_to_my_apps(session: UsersSession, data: CommandData):
+    return session.user_db.user_portal_db.add_app_from_store_to_my_apps(
+        app_id_in_store=data.ensure('app_id_in_store', Utils.is_string),
+        store=data.ensure('store', Utils.is_int)
     )
 
-
-@command("portal:create_concept_app_from_temp", [is_logged])
-def portal__create_concept_app_from_temp(data: CommandData):
-    return gb_session().models().apps().create_concept_app_from_temp(
-        app_detail_changes=data.payload["app_detail_changes"]
+@portal_commands_handler.register("portal:create_concept_app_from_temp")
+def portal__create_concept_app_from_temp(session: UsersSession, data: CommandData):
+    return session.user_db.user_portal_db.create_concept_app_from_temp(
+        app_detail_changes=data.ensure('app_detail_changes', UserPortalDbModel.is_app_detail_changes_input)
     )
 
-
-@command("portal:save_concept_app", [is_logged])
-def portal__save_concept_app(data: FilesCommandData):
-    app_detail_changes = data.payload["app_detail_changes"] if "app_detail_changes" in data.payload else None
+@portal_commands_handler.register("portal:save_concept_app")
+def portal__save_concept_app(session: UsersSession, data: FilesCommandData):
+    app_detail_changes = data.try_ensure('app_detail_changes', UserPortalDbModel.is_app_detail_changes_input)
     files = data.files
-    return gb_session().models().apps().save_concept_app(
-        app_id_int=data.payload[UserObfuscator.APP_ID_INT],
+    return session.user_db.user_portal_db.save_concept_app(
+        app_id_int=data.ensure(UserObfuscator.APP_ID_INT, Utils.is_int),
         app_detail_changes=app_detail_changes,
         files=files
     )
 
-
-@command("portal:save_concept_app_icon", [is_logged])
-def portal__save_concept_app_icon(data: FilesCommandData):
-    app_id_int = data.payload[UserObfuscator.APP_ID_INT]
+@portal_commands_handler.register("portal:save_concept_app_icon")
+def portal__save_concept_app_icon(session: UsersSession, data: FilesCommandData):
+    app_id_int = data.ensure(UserObfuscator.APP_ID_INT, Utils.is_int)
 
     if len(data.files) > 0:
         file = data.files[0]
         icon_bytes = ScraperUtils.get_app_icon_bytes_from_file(file=file)
 
-        gb_session().models().apps().save_concept_app_icon(
+        session.user_db.use_game_concepts_db.save_concept_app_icon(
             app_id_int=app_id_int,
             icon_bytes=icon_bytes
         )
 
-    return gb_session().models().apps().get_app_detail(
+    return session.apps().get_app_detail(
         app_id_int=app_id_int,
         include_gallery=True
     )

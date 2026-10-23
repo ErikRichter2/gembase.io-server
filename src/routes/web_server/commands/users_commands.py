@@ -11,7 +11,7 @@ users_commands_handler: CommandsHandler = CommandsHandler(
 
 @users_commands_handler.register("users:change_password")
 def users_change_password(session: UsersSession, data: CommandData):
-    session.users_db().change_password(
+    session.users_db.change_password(
         user_id=data.ensure('user_id', Utils.is_int),
         password_raw=data.ensure('password', lambda x: Utils.is_string(x, max_length=100))
     )
@@ -24,14 +24,14 @@ def users_delete(session: UsersSession, data: CommandData):
 
     assert user_id != deleted_by_user_id
 
-    return session.users_db().delete(
+    return session.users_db.delete(
         user_id=user_id,
         deleted_by_user_id=deleted_by_user_id
     )
 
 @users_commands_handler.register("users:update_user")
 def update_user(session: UsersSession, data: CommandData):
-    session.user_db().update(
+    session.user_db.update(
         first_name=data.ensure('first_name', lambda x: Utils.is_string(x, 100)),
         last_name=data.ensure('last_name', lambda x: Utils.is_string(x, 100)),
         position_area=data.ensure('position_area', Utils.is_int),

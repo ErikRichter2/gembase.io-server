@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 import os
+import stat
 from typing import Final, Literal, Optional, TypeGuard, get_args
 
 from dataclasses_json import dataclass_json
@@ -32,6 +33,8 @@ class EnvData:
     db_host: Optional[str] = None
     db_port: Optional[int] = None
     google_search_credentials: Optional[str] = None
+    is_debug_env: Optional[bool] = None
+    is_debug_set: Optional[bool] = None
 
     
     @staticmethod
@@ -60,6 +63,7 @@ class EnvData:
             db_host = os.getenv('DB_HOST'),
             db_port = int(db_port) if db_port is not None else None,
             google_search_credentials=os.getenv('GOOGLE_SEARCH_CREDENTIALS'),
+            is_debug_env=bool(os.getenv('IS_DEBUG')),
         )
         
         return res
@@ -73,6 +77,16 @@ class EnvData:
     def load() -> 'EnvData':
         load_dotenv(override=True)
         return EnvData.__create()
+    
+    def set_is_debug(self, debug: bool):
+        self.is_debug_set = debug
+    
+    def is_debug(self):
+        if self.is_debug_set == True:
+            return True
+        if self.is_debug_env == True:
+            return True
+        return False
         
             
 ENV_DATA: EnvData = EnvData.load()

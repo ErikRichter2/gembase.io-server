@@ -26,7 +26,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
         res = []
 
         quota_context = UserQuotaContext(
-            user_db=self.user_db(),
+            user_db=self.user_db,
             quota_type=UserQuotaContext.QUOTA_GOOGLE,
             context="search dev"
         )
@@ -54,7 +54,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
             search_in_concepts=True
     ) -> list:
         context = UserQuotaContext(
-            user_db=self.user_db(),
+            user_db=self.user_db,
             quota_type=UserQuotaContext.QUOTA_GOOGLE,
             context="search app"
         )
@@ -75,7 +75,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
     ):
         dev_title = dev_title.lower().replace(" ", "").replace(":", "").replace("-", "")
 
-        rows = self.conn().select_all("""
+        rows = self.conn.select_all("""
             SELECT d.dev_id_int, d.title, 0 as external, d.store, m.dev_id, d.dev_id_in_store
               FROM scraped_data.devs d
              INNER JOIN app.map_dev_id m ON m.id = d.dev_id_int
@@ -88,7 +88,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
             """, [f"%{dev_title}%", limit])
 
         if include_concepts:
-            rows_concepts = self.conn().select_all("""
+            rows_concepts = self.conn.select_all("""
             SELECT d.dev_id_int, d.title, 0 as external, 0 as store, m.dev_id, m.dev_id as dev_id_in_store
               FROM scraped_data.devs_concepts d
              INNER JOIN app.map_dev_id m ON m.id = d.dev_id_int
@@ -111,7 +111,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
             return None
 
         guid = Utils.get_guid()
-        self.conn().query("""
+        self.conn.query("""
         INSERT INTO audit.google_search (context, q, audit_guid) VALUES (%s, %s, %s)
         """, [json.dumps(context), q, guid])
 
@@ -222,7 +222,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
     def search_app_internal_db(self, app_name: str, limit: int = 10, search_in_concepts=True):
         app_name = app_name.lower().replace(" ", "").replace(":", "").replace("-", "")
 
-        rows = self.conn().select_all("""
+        rows = self.conn.select_all("""
         SELECT a.app_id_int, a.app_id_in_store, a.title, a.icon, 0 as external, a.store, %s as app_type
           FROM scraped_data.apps_v a,
                app.def_sheet_platform_values_install_tiers t
@@ -236,14 +236,14 @@ class UserAppSearchDbModel(BaseUserDbModel):
 
         rows_concept = []
         if search_in_concepts:
-            rows_concept = self.conn().select_all("""
+            rows_concept = self.conn.select_all("""
             SELECT a.app_id_int, '' as app_id_in_store, a.title, a.icon, 0 as external, a.store, %s as app_type
               FROM scraped_data.apps_concepts a
              WHERE REPLACE(REPLACE(REPLACE(LOWER(a.title), ' ', ''), ':', ''), '-', '') LIKE %s
                AND a.user_id = %s
              ORDER BY a.t DESC
              LIMIT %s
-            """, [GamesDbModel.APP_TYPE__CONCEPT, f"%{app_name}%", self.user_id(), limit])
+            """, [GamesDbModel.APP_TYPE__CONCEPT, f"%{app_name}%", self.user_id, limit])
 
         return {
             "quota": 0,
@@ -365,7 +365,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
                 for it in search_data['data']:
                     if it['app_id_in_store'] not in app_ids_in_store:
                         if not ScraperModel.is_app_ignored(
-                            conn=self.conn(),
+                            conn=self.conn,
                             app_id_in_store=it['app_id_in_store'],
                             store=GamesDbModel.STORE__GOOGLE_PLAY
                         ):
@@ -384,7 +384,7 @@ class UserAppSearchDbModel(BaseUserDbModel):
                 for it in search_data['data']:
                     if it['app_id_in_store'] not in app_ids_in_store:
                         if not ScraperModel.is_app_ignored(
-                                conn=self.conn(),
+                                conn=self.conn,
                                 app_id_in_store=it['app_id_in_store'],
                                 store=GamesDbModel.STORE__STEAM
                         ):

@@ -11,7 +11,7 @@ class PublicDbModel(BaseDbModel):
         super(PublicDbModel, self).__init__(conn=conn)
         
     def get_email_id(self, email: str):
-        row = self.conn().select_one_or_none("""
+        row = self.conn.select_one_or_none("""
             SELECT email_id
               FROM gb_public.emails
              WHERE email = %s
@@ -23,7 +23,7 @@ class PublicDbModel(BaseDbModel):
         email_id = self.get_email_id(email=email)
         
         if email_id is None:
-            email_id = self.conn().insert("""
+            email_id = self.conn.insert("""
                 INSERT INTO gb_public.emails(email) VALUES (%s)
                 """, [email])
         
@@ -33,7 +33,7 @@ class PublicDbModel(BaseDbModel):
         
         email_id = self.get_or_create_email_id(email=email)
         
-        row = self.conn().select_one_or_none("""
+        row = self.conn.select_one_or_none("""
             SELECT request_guid
               FROM gb_public.registration_whitelist_pending
              WHERE email_id = %s
@@ -43,7 +43,7 @@ class PublicDbModel(BaseDbModel):
             return row["request_guid"]
 
         request_guid = Utils.get_guid()
-        self.conn().query("""
+        self.conn.query("""
             INSERT INTO gb_public.registration_whitelist_pending (email_id, ip_address, request_guid)
             VALUES (%s, %s, %s)
             """, [email_id, request.remote_addr, request_guid])
@@ -51,7 +51,7 @@ class PublicDbModel(BaseDbModel):
         return request_guid
 
     def get_or_create_unsubscribe_guid(self, email_id: int):            
-        row = self.conn().select_one_or_none("""
+        row = self.conn.select_one_or_none("""
                     SELECT request_guid 
                       FROM gb_public.email_subscription
                      WHERE email_id = %s
@@ -61,7 +61,7 @@ class PublicDbModel(BaseDbModel):
             return row["request_guid"]
         
         guid = Utils.get_guid()
-        self.conn().query("""
+        self.conn.query("""
                     INSERT INTO app.users_email_subscription (email_id, request_guid, subscribed)
                     VALUES (%s, %s, 1)
                     """, [email_id, guid])

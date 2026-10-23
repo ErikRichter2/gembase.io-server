@@ -24,11 +24,11 @@ class UserTutorialDbModel(BaseUserDbModel):
         }        
 
     def __get_tutorial_data(self):
-        row = self.conn().select_one_or_none("""
+        row = self.conn.select_one_or_none("""
         SELECT ut.tutorial
           FROM app.users_tutorial ut
          WHERE ut.user_id = %s
-        """, [self.user_id()])
+        """, [self.user_id])
 
         if row is None or row["tutorial"] is None:
             return {}
