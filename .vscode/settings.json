@@ -1,0 +1,21 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "db-local",
+      "username": "db_admin",
+      "password": "12345678",
+      "database": "employees"
+    }
+  ],
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+  "python.languageServer": "Pylance",
+  "jupyter.debugJustMyCode": false
+}
