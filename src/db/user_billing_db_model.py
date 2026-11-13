@@ -50,7 +50,7 @@ class UserBillingDbModel(BaseUserDbModel):
         if self.__pricing_def is None:
             rows = self.conn.select_all("""
             SELECT id, name, price, invoice_name, invoice_desc
-              FROM billing.def_modules_pricing
+              FROM gb_billing.def_modules_pricing
              WHERE hidden = 0
             """)
             self.__pricing_def = {}
@@ -72,7 +72,7 @@ class UserBillingDbModel(BaseUserDbModel):
         if self.__discount_def is None:
             rows = self.conn.select_all("""
             SELECT id, name, discount_perc
-              FROM billing.def_modules_discount
+              FROM gb_billing.def_modules_discount
             """)
             self.__discount_def = {}
             for row in rows:
@@ -103,7 +103,7 @@ class UserBillingDbModel(BaseUserDbModel):
         if self.__last_billing_details is None:
             row = self.conn.select_one_or_none("""
             SELECT billing_details 
-              FROM billing.requests 
+              FROM gb_billing.requests 
              WHERE user_id = %s 
              ORDER BY id DESC 
              LIMIT 1
@@ -275,7 +275,7 @@ class UserBillingDbModel(BaseUserDbModel):
         )
 
         self.conn.query("""
-                INSERT INTO billing.requests (guid, user_id, billing_details, modules_config, 
+                INSERT INTO gb_billing.requests (guid, user_id, billing_details, modules_config, 
                 stripe_id, test_payment) 
                 VALUES (%s, %s, %s, %s, %s, %s)
                 """, [request_guid, self.user_id, json.dumps(billing_details),
@@ -293,7 +293,7 @@ class UserBillingDbModel(BaseUserDbModel):
         SELECT stripe_id, 
                stripe_state, 
                test_payment
-          FROM billing.requests
+          FROM gb_billing.requests
          WHERE guid = %s
         """, [request_guid])
 
@@ -323,7 +323,7 @@ class UserBillingDbModel(BaseUserDbModel):
                 if not isinstance(subscription, stripe.Subscription):
                     subscription = stripe.Subscription.retrieve(subscription)
                 self.conn.query("""
-                UPDATE billing.requests 
+                UPDATE gb_billing.requests 
                 SET stripe_subscription_id = %s
                 WHERE guid = %s
                 """, [subscription.id, request_guid])
@@ -337,7 +337,7 @@ class UserBillingDbModel(BaseUserDbModel):
 
         if gb_state != "request":
             self.conn.query("""
-            UPDATE billing.requests 
+            UPDATE gb_billing.requests 
                SET stripe_state = %s, 
                    stripe_t = NOW()
              WHERE guid = %s
@@ -354,13 +354,13 @@ class UserBillingDbModel(BaseUserDbModel):
                r.user_id, 
                r.billing_details, 
                r.modules_config
-          FROM billing.requests r
+          FROM gb_billing.requests r
          WHERE r.guid = %s
         """, [payment_guid])
 
         row_billing = self.conn.select_one_or_none("""
         SELECT 1
-          FROM billing.billings 
+          FROM gb_billing.billings 
          WHERE payment_id = %s
         """, [row_payment["id"]])
 
@@ -394,14 +394,14 @@ class UserBillingDbModel(BaseUserDbModel):
             modules: list[dict]
     ):
         billing_id = self.conn.insert("""
-        INSERT INTO billing.billings (organization_id, user_id, guid, activated_t, 
+        INSERT INTO gb_billing.billings (organization_id, user_id, guid, activated_t, 
         expire_t, payment_id) 
         VALUES (%s, %s, uuid(), NOW(), FROM_UNIXTIME(%s), %s)
         """, [organization_id, user_id, expire_t, payment_id])
 
         for it in modules:
             self.conn.query("""
-            INSERT INTO billing.modules (billing_id, module_id, seats)
+            INSERT INTO gb_billing.modules (billing_id, module_id, seats)
             VALUES (%s, %s, %s)
             """, [billing_id, it["id"], it["seats"]])
 
@@ -416,15 +416,15 @@ class UserBillingDbModel(BaseUserDbModel):
         SELECT b.guid as billing_guid, 
                UNIX_TIMESTAMP(b.expire_t) as expire_t,
                IF(b.expire_t < NOW(), 1, 0) as expired
-          FROM billing.billings b
+          FROM gb_billing.billings b
          WHERE b.organization_id = %s
         """, [organization_id])
 
         rows_modules = self.conn.select_all("""
         SELECT b.guid as billing_guid, 
                m.module_id, m.seats
-          FROM billing.billings b,
-               billing.modules m
+          FROM gb_billing.billings b,
+               gb_billing.modules m
          WHERE b.organization_id = %s
            AND m.billing_id = b.id
         """, [organization_id])
@@ -448,7 +448,7 @@ class UserBillingDbModel(BaseUserDbModel):
         SELECT b.guid as billing_guid, 
                oum.module_id, 
                u.guid as user_guid
-          FROM billing.billings b,
+          FROM gb_billing.billings b,
                app.organization_users_modules oum,
                app.organization_users ou,        
                app.users u
@@ -480,7 +480,7 @@ class UserBillingDbModel(BaseUserDbModel):
                    orm.module_id
               FROM app.organization_requests_modules orm,
                    app.organization_requests r,
-                   billing.billings b
+                   gb_billing.billings b
              WHERE orm.request_id = r.request_id
                AND orm.billing_id = b.id
                AND r.organization_id = %s

@@ -191,7 +191,7 @@ class OrganizationsDbModel(BaseDbModel):
             organization_id: int
     ):
         dev_id_int = self.conn.select_one("""
-          SELECT dev_id_int FROM app.organization WHERE id = %s
+          SELECT dev_id_int FROM gb_app.organization WHERE id = %s
           """, [organization_id])["dev_id_int"]
 
         devs = GamesDbModel(conn=self.conn).get_devs_details(devs_ids_int=[dev_id_int])

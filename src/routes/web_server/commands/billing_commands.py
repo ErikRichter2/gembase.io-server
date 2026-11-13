@@ -38,7 +38,7 @@ def billing__payment_confirm(session: UsersSession, data: CommandData):
         request_guid=request_guid
     )
 
-@billing_commands_handler.register("billing:get_billings")
+@billing_commands_handler.register("billing:get")
 def billing__get_billings(session: UsersSession):
     return session.user_db.billing_db.get_billings()
 

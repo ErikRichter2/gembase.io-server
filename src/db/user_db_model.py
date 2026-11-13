@@ -5,6 +5,7 @@ from server_core.db.db_connection import DbConnection
 from server_core.utils.utils import Utils
 from src.db.base.base_user_db_model import BaseUserDbModel
 from src.db.emails_db_model import EmailsDbModel
+from src.db.games_db_model import GamesDbModel
 from src.db.public_db_model import PublicDbModel
 from src.models.emails.email_sender import EmailSender
 from src.models.emails.user_emails import UserEmails
@@ -229,3 +230,47 @@ class UserDbModel(BaseUserDbModel):
         return self.conn.select_one("""
         SELECT id FROM gb_app.users WHERE guid = %s
         """, [UserDbModel.DEMO_BATCH_USER_GUID])["id"]
+
+    def get_client_data(self):
+        data = self.conn.select_one("""
+        SELECT a.guid,
+               r.role,
+               e.email,
+               u.first_name as name,
+               a.position_area,
+               a.position_role,
+               UNIX_TIMESTAMP(a.tos_agree_t) as tos_agree_t,
+               a.concepts_counter,
+               a.added_to_my_apps,
+               a.tutorial_finished
+          FROM gb_users.users u
+         INNER JOIN gb_app.users a ON u.id = a.id
+         INNER JOIN gb_public.emails e ON e.email_id = u.email_id
+         INNER JOIN gb_users.users_roles r ON r.id = u.id
+         WHERE u.id = %s
+        """, [self.user_id])
+        
+        data["tutorial_finished"] = True if data["tutorial_finished"] != 0 else False
+        data["organization"] = None
+
+        organization_data = self.organization_db.get_data()
+        if organization_data is not None:
+            data["organization"] = {
+                "role": organization_data["role"]
+            }
+
+        data["dev_detail"] = self.get_dev_detail()
+
+        return data
+    
+    def get_dev_detail(
+            self,
+    ):
+        dev_id_int = self.conn.select_one("""
+          SELECT dev_id_int FROM gb_app.users_devs WHERE user_id = %s
+          """, [self.user_id])["dev_id_int"]
+
+        devs = GamesDbModel(conn=self.conn).get_devs_details(devs_ids_int=[dev_id_int])
+        if devs is not None:
+            return devs[0]
+        return None    

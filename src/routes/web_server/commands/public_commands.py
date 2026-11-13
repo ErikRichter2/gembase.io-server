@@ -33,13 +33,9 @@ def public_login_credentials(session: PublicSession, data: CommandData):
 def public_is_logged(session: PublicSession):
 
     user_id = session.get_user_id_from_token()
-    role = None
     if user_id is not None:
-        role = UserDbModel(conn=session.conn(), user_id=user_id).get_role()
-    return {
-        'user_id': user_id,
-        'role': role
-    }
+        return UserDbModel(conn=session.conn(), user_id=user_id).get_client_data()
+    return None
 
 
 @public_commands_handler.register("public:logout")
