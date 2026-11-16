@@ -18,21 +18,6 @@ user_survey_commands_handler = CommandsHandler(
     session_class=UsersSession
 )
 
-@user_survey_commands_handler.register("user_survey:get_texts")
-def user_survey__study_preview__get_texts(session: UsersSession):
-    assert ENV_DATA.survey_config is not None
-    assert ENV_DATA.survey_texts is not None
-    
-    config = DmsCache.get_json(session.conn(), guid=ENV_DATA.survey_config)
-    param_texts = []
-    if "param_texts" in config:
-        param_texts = config["param_texts"]
-    survey_texts = DmsCache.get_json(session.conn(), guid=ENV_DATA.survey_texts)
-    return {
-        "translations": survey_texts["texts"],
-        "params": param_texts
-    }
-
 @user_survey_commands_handler.register("user_survey:get_study_preview")
 def user_survey__get_study_preview(session: UsersSession, data: CommandData):
     study_guid = data.payload["study_guid"]

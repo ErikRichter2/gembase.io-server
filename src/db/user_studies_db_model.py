@@ -11,6 +11,16 @@ class StudyDbModel(BaseUserDbModel):
     def __init__(self, conn: DbConnection, user_id: int, study_guid: str):
         super(StudyDbModel, self).__init__(conn=conn, user_id=user_id)
         self.study_guid = study_guid
+        
+    @staticmethod
+    def check_studies_limit(conn: DbConnection, user_id: int):
+        cnt = conn.select_one("""
+        SELECT count(1) as cnt FROM app.users_studies
+        WHERE user_id = %s
+        """, [user_id])["cnt"]
+        if cnt >= 50:
+            raise Exception(f"Studies limit reached")
+        
 
     def save_study(
             self,
@@ -83,6 +93,9 @@ class StudyDbModel(BaseUserDbModel):
         }
 
     def copy_study(self):
+        
+        StudyDbModel.check_studies_limit(conn=self.conn, user_id=self.user_id)
+        
         guid = Utils.get_guid()
         self.conn.query("""
         INSERT INTO app.users_studies (guid, user_id, name, audiences, dcm_concepts, state) 
@@ -363,13 +376,7 @@ class UserStudiesDbModel(BaseUserDbModel):
 
     def create_study(self):
 
-        cnt = self.conn.select_one("""
-        SELECT count(1) as cnt FROM app.users_studies
-        WHERE user_id = %s
-        """, [self.user_id])["cnt"]
-
-        if cnt >= 50:
-            raise Exception(f"Studies limit reached")
+        StudyDbModel.check_studies_limit(conn=self.conn, user_id=self.user_id)
 
         row_dcm_concepts_def = self.conn.select_one_or_none("""
         SELECT d.headers, d.features

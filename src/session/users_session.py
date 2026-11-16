@@ -30,10 +30,10 @@ class UsersSession(PublicSession):
 
     @override
     def validate_command(self, command_data: CommandData):
-        if command_data.get_metadata("role") == "admin":
-            assert self.user_db.is_admin()
-        if command_data.get_metadata("is_not_demo") == True:
-            assert not self.user_db.is_demo()
+        if command_data.get_metadata("role") == "admin" and not self.user_db.is_admin():
+            raise AuthException(AuthException.ADMIN_REQUIRED)
+        if command_data.get_metadata("is_not_demo") and self.user_db.is_demo():
+            raise AuthException(AuthException.NOT_ALLOWED_IN_DEMO)
 
     @property
     def users_db(self) -> UsersDbModel:

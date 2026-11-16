@@ -13,7 +13,7 @@ def billing__get_modules_def(session: UsersSession):
     return session.user_db.billing_db.get_def()
 
 
-@billing_commands_handler.register("billing:payment_request")
+@billing_commands_handler.register("billing:payment_request", is_not_demo=True)
 def billing__payment_request(session: UsersSession, data: CommandData):
     test_payment = False
     test_live_payment = False
@@ -31,7 +31,7 @@ def billing__payment_request(session: UsersSession, data: CommandData):
         test_live_payment=test_live_payment
     )
 
-@billing_commands_handler.register("billing:payment_confirm")
+@billing_commands_handler.register("billing:payment_confirm", is_not_demo=True)
 def billing__payment_confirm(session: UsersSession, data: CommandData):
     request_guid = data.ensure('request_guid', Utils.is_guid)
     return session.user_db.billing_db.payment_confirm(
@@ -42,6 +42,6 @@ def billing__payment_confirm(session: UsersSession, data: CommandData):
 def billing__get_billings(session: UsersSession):
     return session.user_db.billing_db.get_billings()
 
-@billing_commands_handler.register("billing:set_licences")
+@billing_commands_handler.register("billing:set_licences", is_not_demo=True)
 def billing__set_licences(session: UsersSession, data: CommandData):
     assert session.user_db.organization_db.is_organization_admin()

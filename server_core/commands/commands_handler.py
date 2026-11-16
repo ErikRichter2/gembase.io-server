@@ -11,24 +11,26 @@ from src.session.base.base_session import BaseSession
 from src.session.public_session import PublicSession
 from src.session.users_session import UsersSession
 
-registered_commands = {}
-used_commands_names: list[str] = []
+used_commands_ids: set[str] = set()
+used_commands_handlers: set[str] = set()
 
 
 class CommandsHandler:
 
     def __init__(self, session_class):
         self.__session_class = session_class
+        self.__commands: dict[str, dict] = {}
 
     def register(self, command_id: str, **kwargs):
         def decorator(f):
-            if command_id in registered_commands:
+            if command_id in used_commands_ids:
                 raise CommandException(CommandException.COMMAND_ID_ALREADY_REGISTERED, command_id=command_id)
             function_name = f.__name__
-            if function_name in used_commands_names:
+            if function_name in used_commands_handlers:
                 raise CommandException(CommandException.COMMAND_HANDLER_ALREADY_REGISTERED, function_name=function_name)
-            used_commands_names.append(function_name)
-            registered_commands[command_id] = {
+            used_commands_ids.add(command_id)
+            used_commands_handlers.add(function_name)
+            self.__commands[command_id] = {
                 "f": f,
                 "metadata": kwargs
             }
@@ -41,7 +43,7 @@ class CommandsHandler:
 
         if 'id' not in post_data:
             raise Exception("Missing id in command data")
-        if post_data['id'] not in registered_commands:
+        if post_data['id'] not in self.__commands:
             raise Exception("Unknown command id: " + post_data['id'])
 
         command_data = CommandData()
@@ -59,7 +61,7 @@ class CommandsHandler:
             session.initialize_from_request()
             
             command_data = self.create_command_data_from_request()
-            command_data.metadata = registered_commands[command_data.id]["metadata"]
+            command_data.metadata = self.__commands[command_data.id]["metadata"]
 
             session.validate_command(command_data=command_data)
 
@@ -69,7 +71,7 @@ class CommandsHandler:
             
             self.__before_command_execution(session=session, command_data=command_data)
 
-            f = registered_commands[command_data.id]["f"]
+            f = self.__commands[command_data.id]["f"]
 
             args_len = len(inspect.getfullargspec(f).args)
 
