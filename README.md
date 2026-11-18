@@ -90,6 +90,10 @@ Every background job is started through `run_process.py`, which registers the pr
 ```
 app.py                  Imports env + Flask app (src.app.app_init)
 run_process.py          Launcher for background processes (heartbeat, kill switch)
+run_process.sh          Shell wrapper the server uses to start background processes
+Dockerfile              Server image (Python 3.10 + gunicorn)
+docker-compose.yml      Full local stack: MySQL + server + client
+docker/mysql/           Schema, dev user and seed scripts for the MySQL container
 server_core/            Framework-level code: commands, DB connection, JWT, logging, OpenAI wrapper
 src/
   app/                  Flask app init, error responses
@@ -100,12 +104,45 @@ src/
   models/               Obfuscator, emails, scraper, web search
   session/              Public / user sessions
   servers/webserver/    Gunicorn entry point
-data/
-  jupyter/              Notebooks used for scraping, LLM tagging, survey processing, data fixes
-  docs/                 Server / MySQL / nginx setup notes
 ```
 
-## Running locally
+## Running with Docker
+
+The quickest way to run the whole stack (MySQL, API server and Vue client) is Docker Compose.
+Clone both repositories next to each other:
+
+```
+gembase.io-server/
+gembase.io-client/
+```
+
+Then, in `gembase.io-server`:
+
+```bash
+cp docker.env.example docker.env
+docker compose up --build
+```
+
+| Service | URL |
+|---|---|
+| Client (nginx serving the Vue build) | http://localhost:8080 |
+| API (Flask under gunicorn) | http://localhost:5000 |
+| MySQL 8 | `localhost:3307`, user `gembase` / `gembase` |
+
+On first start, MySQL runs the scripts in `docker/mysql/`: the full schema (14 databases, tables, views and
+SQL functions), a local `gembase` user and the minimal seed data. The database starts **empty**: the scraped
+market data and survey results are not part of the repository, so the app runs but has no apps or survey data
+to analyse.
+
+Background calculations run inside the server container. The API starts them on demand through
+`run_process.sh`, exactly as on the production server.
+
+To include Chromium and Xvfb for the Selenium-based store scraper, build with `INSTALL_CHROME=true`
+(`docker compose build --build-arg INSTALL_CHROME=true server`).
+
+To reset the database, remove the volume: `docker compose down -v`.
+
+## Running locally (without Docker)
 
 > The MySQL schema and data are not part of this repository, so the server won't do much
 > without a database dump.
@@ -115,6 +152,8 @@ python3.10 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Requires Python 3.10 and a MySQL 8 server with the schema from `docker/mysql/` loaded.
 
 Create a `.env` file in the project root (it is git-ignored):
 

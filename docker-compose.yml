@@ -1,0 +1,47 @@
+# Runs the whole Gembase stack locally.
+# Expects gembase.io-client to be cloned next to this repository:
+#   ./gembase.io-server   (this repo)
+#   ./gembase.io-client
+#
+#   cp docker.env.example docker.env
+#   docker compose up --build
+#
+# Client: http://localhost:8080   API: http://localhost:5000   MySQL: localhost:3307
+
+services:
+  db:
+    image: mysql:8.0
+    env_file: docker.env
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./docker/mysql:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p$${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  server:
+    build: .
+    env_file: docker.env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+
+  client:
+    build:
+      context: ../gembase.io-client
+      args:
+        VITE_APP_ENV: dev
+        VITE_APP_SERVER_ROOT: http://localhost:5000
+    depends_on:
+      - server
+    ports:
+      - "8080:80"
+
+volumes:
+  db-data:

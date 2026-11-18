@@ -1,0 +1,16 @@
+.git
+.gitignore
+.venv
+venv
+env
+**/__pycache__
+**/*.pyc
+.env
+.env*
+docker.env
+data/
+docker/
+.vscode
+.idea
+*.log
+nohup.out
